@@ -222,158 +222,106 @@ public class InstrumentTranslator  {
 
         if(src.isSetSymbol())
             dest.setSymbol(src.getSymbol().getValue());
-            
         if(src.isSetSymbolSfx())
             dest.setSymbolSfx(src.getSymbolSfx().getValue());
-            
         if(src.isSetSecurityID())
             dest.setSecurityID(src.getSecurityID().getValue());
-            
         if(src.isSetSecurityIDSource())
             dest.setSecurityIDSource(src.getSecurityIDSource().getValue());
-            
         if(src.isSetProduct())
             dest.setProduct(src.getProduct().getValue());
-            
         if(src.isSetCFICode())
             dest.setCFICode(src.getCFICode().getValue());
-            
         if(src.isSetSecurityType())
             dest.setSecurityType(src.getSecurityType().getValue());
-            
         if(src.isSetSecuritySubType())
             dest.setSecuritySubType(src.getSecuritySubType().getValue());
-            
         if(src.isSetMaturityMonthYear())
             dest.setMaturityMonthYear(src.getMaturityMonthYear().getValue());
-            
         if(src.isSetMaturityDate())
             dest.setMaturityDate(src.getMaturityDate().getValue());
-            
         if(src.isSetCouponPaymentDate())
             dest.setCouponPaymentDate(src.getCouponPaymentDate().getValue());
-            
         if(src.isSetIssueDate())
             dest.setIssueDate(src.getIssueDate().getValue());
-            
         if(src.isSetRepoCollateralSecurityType())
             dest.setRepoCollateralSecurityType(src.getRepoCollateralSecurityType().getValue());
-            
         if(src.isSetRepurchaseTerm())
             dest.setRepurchaseTerm(src.getRepurchaseTerm().getValue());
-            
         if(src.isSetRepurchaseRate())
             dest.setRepurchaseRate(new BigDecimal(src.getRepurchaseRate().getValue()));
-            
         if(src.isSetFactor())
             dest.setFactor(new BigDecimal(src.getFactor().getValue()));
-            
         if(src.isSetCreditRating())
             dest.setCreditRating(src.getCreditRating().getValue());
-            
         if(src.isSetInstrRegistry())
             dest.setInstrRegistry(src.getInstrRegistry().getValue());
-            
         if(src.isSetCountryOfIssue())
             dest.setCountryOfIssue(src.getCountryOfIssue().getValue());
-            
         if(src.isSetStateOrProvinceOfIssue())
             dest.setStateOrProvinceOfIssue(src.getStateOrProvinceOfIssue().getValue());
-            
         if(src.isSetLocaleOfIssue())
             dest.setLocaleOfIssue(src.getLocaleOfIssue().getValue());
-            
         if(src.isSetRedemptionDate())
             dest.setRedemptionDate(src.getRedemptionDate().getValue());
-            
         if(src.isSetStrikePrice())
             dest.setStrikePrice(src.getStrikePrice().getValue());
-            
         if(src.isSetStrikeCurrency())
             dest.setStrikeCurrency(src.getStrikeCurrency().getValue());
-            
         if(src.isSetOptAttribute())
             dest.setOptAttribute(src.getOptAttribute().getValue()+"");
-            
         if(src.isSetContractMultiplier())
             dest.setContractMultiplier(new BigDecimal(src.getContractMultiplier().getValue()));
-            
         if(src.isSetCouponRate())
             dest.setCouponRate(new BigDecimal(src.getCouponRate().getValue()));
-            
         if(src.isSetSecurityExchange())
             dest.setSecurityExchange(src.getSecurityExchange().getValue());
-            
         if(src.isSetIssuer())
             dest.setIssuer(src.getIssuer().getValue());
-            
         if(src.isSetEncodedIssuerLen())
             dest.setEncodedIssuerLen(src.getEncodedIssuerLen().getValue());
-            
         if(src.isSetEncodedIssuer())
             dest.setEncodedIssuer(src.getEncodedIssuer().getValue());
-            
         if(src.isSetSecurityDesc())
             dest.setSecurityDesc(src.getSecurityDesc().getValue());
-            
         if(src.isSetEncodedSecurityDescLen())
             dest.setEncodedSecurityDescLen(src.getEncodedSecurityDescLen().getValue());
-            
         if(src.isSetEncodedSecurityDesc())
             dest.setEncodedSecurityDesc(src.getEncodedSecurityDesc().getValue());
-            
         if(src.isSetPool())
             dest.setPool(src.getPool().getValue());
-            
         if(src.isSetContractSettlMonth())
             dest.setContractSettlMonth(src.getContractSettlMonth().getValue());
-            
         if(src.isSetCPProgram())
             dest.setCPProgram(src.getCPProgram().getValue());
-            
         if(src.isSetCPRegType())
             dest.setCPRegType(src.getCPRegType().getValue());
-            
         if(src.isSetDatedDate())
             dest.setDatedDate(src.getDatedDate().getValue());
-            
         if(src.isSetInterestAccrualDate())
             dest.setInterestAccrualDate(src.getInterestAccrualDate().getValue());
-            
         if(src.isSetFamily())
             dest.setFamily(src.getFamily().getValue());
-            
         if(src.isSetSplitFactor())
             dest.setSplitFactor(src.getSplitFactor().getValue());
-            
         if(src.isSetBolson())
             dest.setBolson(src.getBolson().getValue());
-            
         if(src.isSetPaymentCurrency())
             dest.setPaymentCurrency(src.getPaymentCurrency().getValue());
-            
         if(src.isSetAdjustmentCurrency())
             dest.setAdjustmentCurrency(src.getAdjustmentCurrency().getValue());
-            
         if(src.isSetMinCut())
             dest.setMinCut(src.getMinCut().getValue());
-            
         if(src.isSetIssueAmount())
             dest.setIssueAmount(src.getIssueAmount().getValue());
-            
         if(src.isSetRiskIndicator())
             dest.setRiskIndicator(src.getRiskIndicator().getValue());
-            
         if(src.isSetFixedIncomePriceType())
             dest.setFixedIncomePriceType(src.getFixedIncomePriceType().getValue());
-            
         if(src.isSetInstrumentRisk())
             dest.setInstrumentRisk(src.getInstrumentRisk().getValue());
-            
         if(src.isSetInstrumentType())
             dest.setInstrumentType(src.getInstrumentType().getValue());
-            
-
 
         if(src.isSetNoSecurityAltID()) {
 
@@ -402,7 +350,6 @@ public class InstrumentTranslator  {
                 result.add(entry);                
             }
 
- 
         }
         if(src.isSetNoEvents()) {
 
@@ -443,9 +390,7 @@ public class InstrumentTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

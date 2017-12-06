@@ -57,21 +57,14 @@ public class BookAttributesTranslator  {
 
         if(src.isSetSettlType())
             dest.setSettlType(src.getSettlType().getValue()+"");
-            
         if(src.isSetCross())
             dest.setCross(src.getCross().getValue());
-            
         if(src.isSetCrossType())
             dest.setCrossType(src.getCrossType().getValue());
-            
         if(src.isSetRoundLotBook())
             dest.setRoundLotBook(src.getRoundLotBook().getValue()+"");
-            
         if(src.isSetOrderQty())
             dest.setOrderQty(src.getOrderQty().getValue());
-            
-
-
 
         return dest;
 

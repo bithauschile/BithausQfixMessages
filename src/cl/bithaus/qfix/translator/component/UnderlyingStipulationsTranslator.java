@@ -52,7 +52,6 @@ public class UnderlyingStipulationsTranslator  {
         cl.bithaus.fix.components.UnderlyingStipulations dest = new cl.bithaus.fix.components.UnderlyingStipulations();
 
 
-
         if(src.isSetNoUnderlyingStips()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoUnderlyingStips().getField());
@@ -80,9 +79,7 @@ public class UnderlyingStipulationsTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

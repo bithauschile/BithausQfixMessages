@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for RequestForPositionsAck
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,49 +30,56 @@ public class RequestForPositionsAckTranslator  {
 
         if(src.getPosMaintRptID() != null)
             dest.set(new cl.bithaus.qfix.fields.PosMaintRptID(src.getPosMaintRptID()));
-            
+        
         if(src.getPosReqID() != null)
             dest.set(new cl.bithaus.qfix.fields.PosReqID(src.getPosReqID()));
-            
+        
         if(src.getTotalNumPosReports() != null)
             dest.set(new cl.bithaus.qfix.fields.TotalNumPosReports(src.getTotalNumPosReports()));
-            
+        
         if(src.getUnsolicitedIndicator() != null)
             dest.set(new cl.bithaus.qfix.fields.UnsolicitedIndicator(src.getUnsolicitedIndicator()));
-            
+        
         if(src.getPosReqResult() != null)
             dest.set(new cl.bithaus.qfix.fields.PosReqResult(src.getPosReqResult()));
-            
+        
         if(src.getPosReqStatus() != null)
             dest.set(new cl.bithaus.qfix.fields.PosReqStatus(src.getPosReqStatus()));
-            
+        
         if(src.getAccount() != null)
             dest.set(new cl.bithaus.qfix.fields.Account(src.getAccount()));
-            
+        
         if(src.getAcctIDSource() != null)
             dest.set(new cl.bithaus.qfix.fields.AcctIDSource(src.getAcctIDSource()));
-            
+        
         if(src.getAccountType() != null)
             dest.set(new cl.bithaus.qfix.fields.AccountType(src.getAccountType()));
-            
+        
         if(src.getCurrency() != null)
             dest.set(new cl.bithaus.qfix.fields.Currency(src.getCurrency()));
-            
+        
         if(src.getResponseTransportType() != null)
             dest.set(new cl.bithaus.qfix.fields.ResponseTransportType(src.getResponseTransportType()));
-            
+        
         if(src.getResponseDestination() != null)
             dest.set(new cl.bithaus.qfix.fields.ResponseDestination(src.getResponseDestination()));
-            
+        
         if(src.getText() != null)
             dest.set(new cl.bithaus.qfix.fields.Text(src.getText()));
-            
+        
         if(src.getEncodedTextLen() != null)
             dest.set(new cl.bithaus.qfix.fields.EncodedTextLen(src.getEncodedTextLen()));
-            
+        
         if(src.getEncodedText() != null)
             dest.set(new cl.bithaus.qfix.fields.EncodedText(src.getEncodedText()));
-            
+        
+
+        if(src.getParties() != null)
+            dest.set(cl.bithaus.qfix.translator.component.PartiesTranslator.toFix(src.getParties()));
+
+        if(src.getInstrument() != null)
+            dest.set(cl.bithaus.qfix.translator.component.InstrumentTranslator.toFix(src.getInstrument()));
+
 
         if(src.getNoLegs() != null && src.getNoLegs().size() > 0) {
 
@@ -80,6 +92,7 @@ public class RequestForPositionsAckTranslator  {
                 dest.addGroup(aux);
             }            
         }
+
         if(src.getNoUnderlyings() != null && src.getNoUnderlyings().size() > 0) {
 
             for(cl.bithaus.fix.RequestForPositionsAck.NoUnderlyings.NoUnderlyingsEntry entry : src.getNoUnderlyings().getGroups()) {
@@ -92,9 +105,103 @@ public class RequestForPositionsAckTranslator  {
             }            
         }
 
+
         return dest;
     }
 
+    public static cl.bithaus.fix.RequestForPositionsAck fromFix(cl.bithaus.qfix.msg.RequestForPositionsAck src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.RequestForPositionsAck dest = new cl.bithaus.fix.RequestForPositionsAck();
+
+        if(src.isSetPosMaintRptID())
+            dest.setPosMaintRptID(src.getPosMaintRptID().getValue());
+
+        if(src.isSetPosReqID())
+            dest.setPosReqID(src.getPosReqID().getValue());
+
+        if(src.isSetTotalNumPosReports())
+            dest.setTotalNumPosReports(src.getTotalNumPosReports().getValue());
+
+        if(src.isSetUnsolicitedIndicator())
+            dest.setUnsolicitedIndicator(src.getUnsolicitedIndicator().getValue());
+
+        if(src.isSetPosReqResult())
+            dest.setPosReqResult(src.getPosReqResult().getValue());
+
+        if(src.isSetPosReqStatus())
+            dest.setPosReqStatus(src.getPosReqStatus().getValue());
+
+        if(src.isSetAccount())
+            dest.setAccount(src.getAccount().getValue());
+
+        if(src.isSetAcctIDSource())
+            dest.setAcctIDSource(src.getAcctIDSource().getValue());
+
+        if(src.isSetAccountType())
+            dest.setAccountType(src.getAccountType().getValue());
+
+        if(src.isSetCurrency())
+            dest.setCurrency(src.getCurrency().getValue());
+
+        if(src.isSetResponseTransportType())
+            dest.setResponseTransportType(src.getResponseTransportType().getValue());
+
+        if(src.isSetResponseDestination())
+            dest.setResponseDestination(src.getResponseDestination().getValue());
+
+        if(src.isSetText())
+            dest.setText(src.getText().getValue());
+
+        if(src.isSetEncodedTextLen())
+            dest.setEncodedTextLen(src.getEncodedTextLen().getValue());
+
+        if(src.isSetEncodedText())
+            dest.setEncodedText(src.getEncodedText().getValue());
+
+
+        if(src.getParties() != null)
+            dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
+
+        if(src.getInstrument() != null)
+            dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
+
+
+
+        if(src.isSetNoLegs()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoLegs().getField());
+            List<cl.bithaus.fix.RequestForPositionsAck.NoLegs.NoLegsEntry> result = new LinkedList<>();
+
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.RequestForPositionsAck.NoLegs.NoLegsEntry entry = 
+                    new cl.bithaus.fix.RequestForPositionsAck.NoLegs.NoLegsEntry();
+
+
+                result.add(entry);                
+            }
+
+        }
+        if(src.isSetNoUnderlyings()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoUnderlyings().getField());
+            List<cl.bithaus.fix.RequestForPositionsAck.NoUnderlyings.NoUnderlyingsEntry> result = new LinkedList<>();
+
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.RequestForPositionsAck.NoUnderlyings.NoUnderlyingsEntry entry = 
+                    new cl.bithaus.fix.RequestForPositionsAck.NoUnderlyings.NoUnderlyingsEntry();
+
+
+                result.add(entry);                
+            }
+
+        }
+        return dest;
+
+    }
 }
 

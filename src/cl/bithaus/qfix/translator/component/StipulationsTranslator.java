@@ -52,7 +52,6 @@ public class StipulationsTranslator  {
         cl.bithaus.fix.components.Stipulations dest = new cl.bithaus.fix.components.Stipulations();
 
 
-
         if(src.isSetNoStipulations()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoStipulations().getField());
@@ -80,9 +79,7 @@ public class StipulationsTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

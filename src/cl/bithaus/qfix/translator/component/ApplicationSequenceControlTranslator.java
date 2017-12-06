@@ -52,18 +52,12 @@ public class ApplicationSequenceControlTranslator  {
 
         if(src.isSetApplID())
             dest.setApplID(src.getApplID().getValue());
-            
         if(src.isSetApplSeqNum())
             dest.setApplSeqNum(src.getApplSeqNum().getValue());
-            
         if(src.isSetApplLastSeqNum())
             dest.setApplLastSeqNum(src.getApplLastSeqNum().getValue());
-            
         if(src.isSetApplResendFlag())
             dest.setApplResendFlag(src.getApplResendFlag().getValue());
-            
-
-
 
         return dest;
 

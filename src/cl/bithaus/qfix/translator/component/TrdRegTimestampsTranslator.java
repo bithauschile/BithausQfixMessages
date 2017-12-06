@@ -53,7 +53,6 @@ public class TrdRegTimestampsTranslator  {
         cl.bithaus.fix.components.TrdRegTimestamps dest = new cl.bithaus.fix.components.TrdRegTimestamps();
 
 
-
         if(src.isSetNoTrdRegTimestamps()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoTrdRegTimestamps().getField());
@@ -87,9 +86,7 @@ public class TrdRegTimestampsTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

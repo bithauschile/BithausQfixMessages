@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for TradingSessionStatusRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,34 +30,69 @@ public class TradingSessionStatusRequestTranslator  {
 
         if(src.getTradSesReqID() != null)
             dest.set(new cl.bithaus.qfix.fields.TradSesReqID(src.getTradSesReqID()));
-            
+        
         if(src.getTradingSessionID() != null)
             dest.set(new cl.bithaus.qfix.fields.TradingSessionID(src.getTradingSessionID()));
-            
+        
         if(src.getTradingSessionSubID() != null)
             dest.set(new cl.bithaus.qfix.fields.TradingSessionSubID(src.getTradingSessionSubID()));
-            
+        
         if(src.getTradSesMethod() != null)
             dest.set(new cl.bithaus.qfix.fields.TradSesMethod(src.getTradSesMethod()));
-            
+        
         if(src.getTradSesMode() != null)
             dest.set(new cl.bithaus.qfix.fields.TradSesMode(src.getTradSesMode()));
-            
+        
         if(src.getSubscriptionRequestType() != null)
             if(src.getSubscriptionRequestType().length() > 0)
                 dest.set(new cl.bithaus.qfix.fields.SubscriptionRequestType(src.getSubscriptionRequestType().charAt(0)));
-            
+        
         if(src.getExDestination() != null)
             dest.set(new cl.bithaus.qfix.fields.ExDestination(src.getExDestination()));
-            
+        
         if(src.getMarketSegmentID() != null)
             dest.set(new cl.bithaus.qfix.fields.MarketSegmentID(src.getMarketSegmentID()));
-            
+        
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.TradingSessionStatusRequest fromFix(cl.bithaus.qfix.msg.TradingSessionStatusRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.TradingSessionStatusRequest dest = new cl.bithaus.fix.TradingSessionStatusRequest();
+
+        if(src.isSetTradSesReqID())
+            dest.setTradSesReqID(src.getTradSesReqID().getValue());
+
+        if(src.isSetTradingSessionID())
+            dest.setTradingSessionID(src.getTradingSessionID().getValue());
+
+        if(src.isSetTradingSessionSubID())
+            dest.setTradingSessionSubID(src.getTradingSessionSubID().getValue());
+
+        if(src.isSetTradSesMethod())
+            dest.setTradSesMethod(src.getTradSesMethod().getValue());
+
+        if(src.isSetTradSesMode())
+            dest.setTradSesMode(src.getTradSesMode().getValue());
+
+        if(src.isSetSubscriptionRequestType())
+            dest.setSubscriptionRequestType(src.getSubscriptionRequestType().getValue()+"");
+
+        if(src.isSetExDestination())
+            dest.setExDestination(src.getExDestination().getValue());
+
+        if(src.isSetMarketSegmentID())
+            dest.setMarketSegmentID(src.getMarketSegmentID().getValue());
+
+
+
+
+        return dest;
+
+    }
 }
 

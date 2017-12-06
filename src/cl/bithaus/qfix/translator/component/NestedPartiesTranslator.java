@@ -54,7 +54,6 @@ public class NestedPartiesTranslator  {
         cl.bithaus.fix.components.NestedParties dest = new cl.bithaus.fix.components.NestedParties();
 
 
-
         if(src.isSetNoNestedPartyIDs()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoNestedPartyIDs().getField());
@@ -87,9 +86,7 @@ public class NestedPartiesTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

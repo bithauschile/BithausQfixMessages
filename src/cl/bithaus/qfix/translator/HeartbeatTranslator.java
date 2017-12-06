@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for Heartbeat
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,12 +30,26 @@ public class HeartbeatTranslator  {
 
         if(src.getTestReqID() != null)
             dest.set(new cl.bithaus.qfix.fields.TestReqID(src.getTestReqID()));
-            
+        
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.Heartbeat fromFix(cl.bithaus.qfix.msg.Heartbeat src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.Heartbeat dest = new cl.bithaus.fix.Heartbeat();
+
+        if(src.isSetTestReqID())
+            dest.setTestReqID(src.getTestReqID().getValue());
+
+
+
+
+        return dest;
+
+    }
 }
 

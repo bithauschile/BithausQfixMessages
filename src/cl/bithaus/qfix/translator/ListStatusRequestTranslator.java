@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for ListStatusRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,21 +30,44 @@ public class ListStatusRequestTranslator  {
 
         if(src.getListID() != null)
             dest.set(new cl.bithaus.qfix.fields.ListID(src.getListID()));
-            
+        
         if(src.getText() != null)
             dest.set(new cl.bithaus.qfix.fields.Text(src.getText()));
-            
+        
         if(src.getEncodedTextLen() != null)
             dest.set(new cl.bithaus.qfix.fields.EncodedTextLen(src.getEncodedTextLen()));
-            
+        
         if(src.getEncodedText() != null)
             dest.set(new cl.bithaus.qfix.fields.EncodedText(src.getEncodedText()));
-            
+        
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.ListStatusRequest fromFix(cl.bithaus.qfix.msg.ListStatusRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.ListStatusRequest dest = new cl.bithaus.fix.ListStatusRequest();
+
+        if(src.isSetListID())
+            dest.setListID(src.getListID().getValue());
+
+        if(src.isSetText())
+            dest.setText(src.getText().getValue());
+
+        if(src.isSetEncodedTextLen())
+            dest.setEncodedTextLen(src.getEncodedTextLen().getValue());
+
+        if(src.isSetEncodedText())
+            dest.setEncodedText(src.getEncodedText().getValue());
+
+
+
+
+        return dest;
+
+    }
 }
 

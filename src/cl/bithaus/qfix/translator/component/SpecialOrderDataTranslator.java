@@ -64,14 +64,10 @@ public class SpecialOrderDataTranslator  {
 
         if(src.isSetSpecialOrderType())
             dest.setSpecialOrderType(src.getSpecialOrderType().getValue()+"");
-            
         if(src.isSetNumberOfOrders())
             dest.setNumberOfOrders(src.getNumberOfOrders().getValue());
-            
         if(src.isSetOrderNumber())
             dest.setOrderNumber(src.getOrderNumber().getValue());
-            
-
 
         if(src.isSetNoSpecialOrderData()) {
 
@@ -99,9 +95,7 @@ public class SpecialOrderDataTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

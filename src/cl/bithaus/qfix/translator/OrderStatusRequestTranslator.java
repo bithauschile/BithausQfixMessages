@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for OrderStatusRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,32 +30,42 @@ public class OrderStatusRequestTranslator  {
 
         if(src.getOrderID() != null)
             dest.set(new cl.bithaus.qfix.fields.OrderID(src.getOrderID()));
-            
+        
         if(src.getClOrdID() != null)
             dest.set(new cl.bithaus.qfix.fields.ClOrdID(src.getClOrdID()));
-            
+        
         if(src.getSecondaryClOrdID() != null)
             dest.set(new cl.bithaus.qfix.fields.SecondaryClOrdID(src.getSecondaryClOrdID()));
-            
+        
         if(src.getClOrdLinkID() != null)
             dest.set(new cl.bithaus.qfix.fields.ClOrdLinkID(src.getClOrdLinkID()));
-            
+        
         if(src.getOrdStatusReqID() != null)
             dest.set(new cl.bithaus.qfix.fields.OrdStatusReqID(src.getOrdStatusReqID()));
-            
+        
         if(src.getAccount() != null)
             dest.set(new cl.bithaus.qfix.fields.Account(src.getAccount()));
-            
+        
         if(src.getAcctIDSource() != null)
             dest.set(new cl.bithaus.qfix.fields.AcctIDSource(src.getAcctIDSource()));
-            
+        
         if(src.getSide() != null)
             if(src.getSide().length() > 0)
                 dest.set(new cl.bithaus.qfix.fields.Side(src.getSide().charAt(0)));
-            
+        
         if(src.getExDestination() != null)
             dest.set(new cl.bithaus.qfix.fields.ExDestination(src.getExDestination()));
-            
+        
+
+        if(src.getParties() != null)
+            dest.set(cl.bithaus.qfix.translator.component.PartiesTranslator.toFix(src.getParties()));
+
+        if(src.getInstrument() != null)
+            dest.set(cl.bithaus.qfix.translator.component.InstrumentTranslator.toFix(src.getInstrument()));
+
+        if(src.getFinancingDetails() != null)
+            dest.set(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.toFix(src.getFinancingDetails()));
+
 
         if(src.getNoUnderlyings() != null && src.getNoUnderlyings().size() > 0) {
 
@@ -64,9 +79,72 @@ public class OrderStatusRequestTranslator  {
             }            
         }
 
+
         return dest;
     }
 
+    public static cl.bithaus.fix.OrderStatusRequest fromFix(cl.bithaus.qfix.msg.OrderStatusRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.OrderStatusRequest dest = new cl.bithaus.fix.OrderStatusRequest();
+
+        if(src.isSetOrderID())
+            dest.setOrderID(src.getOrderID().getValue());
+
+        if(src.isSetClOrdID())
+            dest.setClOrdID(src.getClOrdID().getValue());
+
+        if(src.isSetSecondaryClOrdID())
+            dest.setSecondaryClOrdID(src.getSecondaryClOrdID().getValue());
+
+        if(src.isSetClOrdLinkID())
+            dest.setClOrdLinkID(src.getClOrdLinkID().getValue());
+
+        if(src.isSetOrdStatusReqID())
+            dest.setOrdStatusReqID(src.getOrdStatusReqID().getValue());
+
+        if(src.isSetAccount())
+            dest.setAccount(src.getAccount().getValue());
+
+        if(src.isSetAcctIDSource())
+            dest.setAcctIDSource(src.getAcctIDSource().getValue());
+
+        if(src.isSetSide())
+            dest.setSide(src.getSide().getValue()+"");
+
+        if(src.isSetExDestination())
+            dest.setExDestination(src.getExDestination().getValue());
+
+
+        if(src.getParties() != null)
+            dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
+
+        if(src.getInstrument() != null)
+            dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
+
+        if(src.getFinancingDetails() != null)
+            dest.setFinancingDetails(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.fromFix(src.getFinancingDetails()));
+
+
+
+        if(src.isSetNoUnderlyings()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoUnderlyings().getField());
+            List<cl.bithaus.fix.OrderStatusRequest.NoUnderlyings.NoUnderlyingsEntry> result = new LinkedList<>();
+
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.OrderStatusRequest.NoUnderlyings.NoUnderlyingsEntry entry = 
+                    new cl.bithaus.fix.OrderStatusRequest.NoUnderlyings.NoUnderlyingsEntry();
+
+
+                result.add(entry);                
+            }
+
+        }
+        return dest;
+
+    }
 }
 

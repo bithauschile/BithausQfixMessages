@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for NetworkStatusRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,10 +30,11 @@ public class NetworkStatusRequestTranslator  {
 
         if(src.getNetworkRequestType() != null)
             dest.set(new cl.bithaus.qfix.fields.NetworkRequestType(src.getNetworkRequestType()));
-            
+        
         if(src.getNetworkRequestID() != null)
             dest.set(new cl.bithaus.qfix.fields.NetworkRequestID(src.getNetworkRequestID()));
-            
+        
+
 
         if(src.getNoCompIDs() != null && src.getNoCompIDs().size() > 0) {
 
@@ -46,9 +52,66 @@ public class NetworkStatusRequestTranslator  {
             }            
         }
 
+
         return dest;
     }
 
+    public static cl.bithaus.fix.NetworkStatusRequest fromFix(cl.bithaus.qfix.msg.NetworkStatusRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.NetworkStatusRequest dest = new cl.bithaus.fix.NetworkStatusRequest();
+
+        if(src.isSetNetworkRequestType())
+            dest.setNetworkRequestType(src.getNetworkRequestType().getValue());
+
+        if(src.isSetNetworkRequestID())
+            dest.setNetworkRequestID(src.getNetworkRequestID().getValue());
+
+
+
+
+        if(src.isSetNoCompIDs()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoCompIDs().getField());
+            List<cl.bithaus.fix.NetworkStatusRequest.NoCompIDs.NoCompIDsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.RefCompID refCompID = new cl.bithaus.qfix.fields.RefCompID();
+            cl.bithaus.qfix.fields.RefSubID refSubID = new cl.bithaus.qfix.fields.RefSubID();
+            cl.bithaus.qfix.fields.LocationID locationID = new cl.bithaus.qfix.fields.LocationID();
+            cl.bithaus.qfix.fields.DeskID deskID = new cl.bithaus.qfix.fields.DeskID();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.NetworkStatusRequest.NoCompIDs.NoCompIDsEntry entry = 
+                    new cl.bithaus.fix.NetworkStatusRequest.NoCompIDs.NoCompIDsEntry();
+
+                if(g.isSetField(refCompID)) {
+                    refCompID = (cl.bithaus.qfix.fields.RefCompID) g.getField(refCompID);
+                    entry.setRefCompID(refCompID.getValue());
+
+                }
+                if(g.isSetField(refSubID)) {
+                    refSubID = (cl.bithaus.qfix.fields.RefSubID) g.getField(refSubID);
+                    entry.setRefSubID(refSubID.getValue());
+
+                }
+                if(g.isSetField(locationID)) {
+                    locationID = (cl.bithaus.qfix.fields.LocationID) g.getField(locationID);
+                    entry.setLocationID(locationID.getValue());
+
+                }
+                if(g.isSetField(deskID)) {
+                    deskID = (cl.bithaus.qfix.fields.DeskID) g.getField(deskID);
+                    entry.setDeskID(deskID.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+        }
+        return dest;
+
+    }
 }
 

@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for UserResponse
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,21 +30,44 @@ public class UserResponseTranslator  {
 
         if(src.getUserRequestID() != null)
             dest.set(new cl.bithaus.qfix.fields.UserRequestID(src.getUserRequestID()));
-            
+        
         if(src.getUsername() != null)
             dest.set(new cl.bithaus.qfix.fields.Username(src.getUsername()));
-            
+        
         if(src.getUserStatus() != null)
             dest.set(new cl.bithaus.qfix.fields.UserStatus(src.getUserStatus()));
-            
+        
         if(src.getUserStatusText() != null)
             dest.set(new cl.bithaus.qfix.fields.UserStatusText(src.getUserStatusText()));
-            
+        
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.UserResponse fromFix(cl.bithaus.qfix.msg.UserResponse src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.UserResponse dest = new cl.bithaus.fix.UserResponse();
+
+        if(src.isSetUserRequestID())
+            dest.setUserRequestID(src.getUserRequestID().getValue());
+
+        if(src.isSetUsername())
+            dest.setUsername(src.getUsername().getValue());
+
+        if(src.isSetUserStatus())
+            dest.setUserStatus(src.getUserStatus().getValue());
+
+        if(src.isSetUserStatusText())
+            dest.setUserStatusText(src.getUserStatusText().getValue());
+
+
+
+
+        return dest;
+
+    }
 }
 

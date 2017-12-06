@@ -43,9 +43,6 @@ public class PegInstructionsTranslator  {
 
         if(src.isSetPegOffsetValue())
             dest.setPegOffsetValue(new BigDecimal(src.getPegOffsetValue().getValue()));
-            
-
-
 
         return dest;
 

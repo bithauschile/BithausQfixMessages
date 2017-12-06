@@ -62,27 +62,18 @@ public class DiscretionInstructionsTranslator  {
 
         if(src.isSetDiscretionInst())
             dest.setDiscretionInst(src.getDiscretionInst().getValue()+"");
-            
         if(src.isSetDiscretionOffsetValue())
             dest.setDiscretionOffsetValue(new BigDecimal(src.getDiscretionOffsetValue().getValue()));
-            
         if(src.isSetDiscretionMoveType())
             dest.setDiscretionMoveType(src.getDiscretionMoveType().getValue());
-            
         if(src.isSetDiscretionOffsetType())
             dest.setDiscretionOffsetType(src.getDiscretionOffsetType().getValue());
-            
         if(src.isSetDiscretionLimitType())
             dest.setDiscretionLimitType(src.getDiscretionLimitType().getValue());
-            
         if(src.isSetDiscretionRoundDirection())
             dest.setDiscretionRoundDirection(src.getDiscretionRoundDirection().getValue());
-            
         if(src.isSetDiscretionScope())
             dest.setDiscretionScope(src.getDiscretionScope().getValue());
-            
-
-
 
         return dest;
 

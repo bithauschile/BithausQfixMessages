@@ -59,11 +59,8 @@ public class InstrumentExtensionTranslator  {
 
         if(src.isSetDeliveryForm())
             dest.setDeliveryForm(src.getDeliveryForm().getValue());
-            
         if(src.isSetPctAtRisk())
             dest.setPctAtRisk(new BigDecimal(src.getPctAtRisk().getValue()));
-            
-
 
         if(src.isSetNoInstrAttrib()) {
 
@@ -92,9 +89,7 @@ public class InstrumentExtensionTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

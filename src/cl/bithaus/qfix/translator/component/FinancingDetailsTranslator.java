@@ -67,33 +67,22 @@ public class FinancingDetailsTranslator  {
 
         if(src.isSetAgreementDesc())
             dest.setAgreementDesc(src.getAgreementDesc().getValue());
-            
         if(src.isSetAgreementID())
             dest.setAgreementID(src.getAgreementID().getValue());
-            
         if(src.isSetAgreementDate())
             dest.setAgreementDate(src.getAgreementDate().getValue());
-            
         if(src.isSetAgreementCurrency())
             dest.setAgreementCurrency(src.getAgreementCurrency().getValue());
-            
         if(src.isSetTerminationType())
             dest.setTerminationType(src.getTerminationType().getValue());
-            
         if(src.isSetStartDate())
             dest.setStartDate(src.getStartDate().getValue());
-            
         if(src.isSetEndDate())
             dest.setEndDate(src.getEndDate().getValue());
-            
         if(src.isSetDeliveryType())
             dest.setDeliveryType(src.getDeliveryType().getValue());
-            
         if(src.isSetMarginRatio())
             dest.setMarginRatio(new BigDecimal(src.getMarginRatio().getValue()));
-            
-
-
 
         return dest;
 

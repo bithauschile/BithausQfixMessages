@@ -54,18 +54,12 @@ public class CommissionDataTranslator  {
 
         if(src.isSetCommission())
             dest.setCommission(src.getCommission().getValue());
-            
         if(src.isSetCommType())
             dest.setCommType(src.getCommType().getValue()+"");
-            
         if(src.isSetCommCurrency())
             dest.setCommCurrency(src.getCommCurrency().getValue());
-            
         if(src.isSetFundRenewWaiv())
             dest.setFundRenewWaiv(src.getFundRenewWaiv().getValue()+"");
-            
-
-
 
         return dest;
 

@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for SequenceReset
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,15 +30,32 @@ public class SequenceResetTranslator  {
 
         if(src.getGapFillFlag() != null)
             dest.set(new cl.bithaus.qfix.fields.GapFillFlag(src.getGapFillFlag()));
-            
+        
         if(src.getNewSeqNo() != null)
             dest.set(new cl.bithaus.qfix.fields.NewSeqNo(src.getNewSeqNo()));
-            
+        
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.SequenceReset fromFix(cl.bithaus.qfix.msg.SequenceReset src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.SequenceReset dest = new cl.bithaus.fix.SequenceReset();
+
+        if(src.isSetGapFillFlag())
+            dest.setGapFillFlag(src.getGapFillFlag().getValue());
+
+        if(src.isSetNewSeqNo())
+            dest.setNewSeqNo(src.getNewSeqNo().getValue());
+
+
+
+
+        return dest;
+
+    }
 }
 

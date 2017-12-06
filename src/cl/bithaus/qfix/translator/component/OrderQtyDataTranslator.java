@@ -56,21 +56,14 @@ public class OrderQtyDataTranslator  {
 
         if(src.isSetOrderQty())
             dest.setOrderQty(src.getOrderQty().getValue());
-            
         if(src.isSetCashOrderQty())
             dest.setCashOrderQty(src.getCashOrderQty().getValue());
-            
         if(src.isSetOrderPercent())
             dest.setOrderPercent(new BigDecimal(src.getOrderPercent().getValue()));
-            
         if(src.isSetRoundingDirection())
             dest.setRoundingDirection(src.getRoundingDirection().getValue()+"");
-            
         if(src.isSetRoundingModulus())
             dest.setRoundingModulus(new BigDecimal(src.getRoundingModulus().getValue()));
-            
-
-
 
         return dest;
 

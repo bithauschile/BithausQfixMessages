@@ -55,21 +55,14 @@ public class LegBenchmarkCurveDataTranslator  {
 
         if(src.isSetLegBenchmarkCurveCurrency())
             dest.setLegBenchmarkCurveCurrency(src.getLegBenchmarkCurveCurrency().getValue());
-            
         if(src.isSetLegBenchmarkCurveName())
             dest.setLegBenchmarkCurveName(src.getLegBenchmarkCurveName().getValue());
-            
         if(src.isSetLegBenchmarkCurvePoint())
             dest.setLegBenchmarkCurvePoint(src.getLegBenchmarkCurvePoint().getValue());
-            
         if(src.isSetLegBenchmarkPrice())
             dest.setLegBenchmarkPrice(src.getLegBenchmarkPrice().getValue());
-            
         if(src.isSetLegBenchmarkPriceType())
             dest.setLegBenchmarkPriceType(src.getLegBenchmarkPriceType().getValue());
-            
-
-
 
         return dest;
 

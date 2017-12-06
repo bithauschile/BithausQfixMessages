@@ -56,7 +56,6 @@ public class TradePartiesTranslator  {
         cl.bithaus.fix.components.TradeParties dest = new cl.bithaus.fix.components.TradeParties();
 
 
-
         if(src.isSetNoSides()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoSides().getField());
@@ -101,9 +100,7 @@ public class TradePartiesTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

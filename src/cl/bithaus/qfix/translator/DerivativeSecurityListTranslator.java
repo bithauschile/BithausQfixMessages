@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for DerivativeSecurityList
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,19 +30,23 @@ public class DerivativeSecurityListTranslator  {
 
         if(src.getSecurityReqID() != null)
             dest.set(new cl.bithaus.qfix.fields.SecurityReqID(src.getSecurityReqID()));
-            
+        
         if(src.getSecurityResponseID() != null)
             dest.set(new cl.bithaus.qfix.fields.SecurityResponseID(src.getSecurityResponseID()));
-            
+        
         if(src.getSecurityRequestResult() != null)
             dest.set(new cl.bithaus.qfix.fields.SecurityRequestResult(src.getSecurityRequestResult()));
-            
+        
         if(src.getTotNoRelatedSym() != null)
             dest.set(new cl.bithaus.qfix.fields.TotNoRelatedSym(src.getTotNoRelatedSym()));
-            
+        
         if(src.getLastFragment() != null)
             dest.set(new cl.bithaus.qfix.fields.LastFragment(src.getLastFragment()));
-            
+        
+
+        if(src.getUnderlyingInstrument() != null)
+            dest.set(cl.bithaus.qfix.translator.component.UnderlyingInstrumentTranslator.toFix(src.getUnderlyingInstrument()));
+
 
         if(src.getNoRelatedSym() != null && src.getNoRelatedSym().size() > 0) {
 
@@ -58,9 +67,96 @@ public class DerivativeSecurityListTranslator  {
             }            
         }
 
+
         return dest;
     }
 
+    public static cl.bithaus.fix.DerivativeSecurityList fromFix(cl.bithaus.qfix.msg.DerivativeSecurityList src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.DerivativeSecurityList dest = new cl.bithaus.fix.DerivativeSecurityList();
+
+        if(src.isSetSecurityReqID())
+            dest.setSecurityReqID(src.getSecurityReqID().getValue());
+
+        if(src.isSetSecurityResponseID())
+            dest.setSecurityResponseID(src.getSecurityResponseID().getValue());
+
+        if(src.isSetSecurityRequestResult())
+            dest.setSecurityRequestResult(src.getSecurityRequestResult().getValue());
+
+        if(src.isSetTotNoRelatedSym())
+            dest.setTotNoRelatedSym(src.getTotNoRelatedSym().getValue());
+
+        if(src.isSetLastFragment())
+            dest.setLastFragment(src.getLastFragment().getValue());
+
+
+        if(src.getUnderlyingInstrument() != null)
+            dest.setUnderlyingInstrument(cl.bithaus.qfix.translator.component.UnderlyingInstrumentTranslator.fromFix(src.getUnderlyingInstrument()));
+
+
+
+        if(src.isSetNoRelatedSym()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoRelatedSym().getField());
+            List<cl.bithaus.fix.DerivativeSecurityList.NoRelatedSym.NoRelatedSymEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.Currency currency = new cl.bithaus.qfix.fields.Currency();
+            cl.bithaus.qfix.fields.ExpirationCycle expirationCycle = new cl.bithaus.qfix.fields.ExpirationCycle();
+            cl.bithaus.qfix.fields.TradingSessionID tradingSessionID = new cl.bithaus.qfix.fields.TradingSessionID();
+            cl.bithaus.qfix.fields.TradingSessionSubID tradingSessionSubID = new cl.bithaus.qfix.fields.TradingSessionSubID();
+            cl.bithaus.qfix.fields.Text text = new cl.bithaus.qfix.fields.Text();
+            cl.bithaus.qfix.fields.EncodedTextLen encodedTextLen = new cl.bithaus.qfix.fields.EncodedTextLen();
+            cl.bithaus.qfix.fields.EncodedText encodedText = new cl.bithaus.qfix.fields.EncodedText();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.DerivativeSecurityList.NoRelatedSym.NoRelatedSymEntry entry = 
+                    new cl.bithaus.fix.DerivativeSecurityList.NoRelatedSym.NoRelatedSymEntry();
+
+                if(g.isSetField(currency)) {
+                    currency = (cl.bithaus.qfix.fields.Currency) g.getField(currency);
+                    entry.setCurrency(currency.getValue());
+
+                }
+                if(g.isSetField(expirationCycle)) {
+                    expirationCycle = (cl.bithaus.qfix.fields.ExpirationCycle) g.getField(expirationCycle);
+                    entry.setExpirationCycle(expirationCycle.getValue());
+
+                }
+                if(g.isSetField(tradingSessionID)) {
+                    tradingSessionID = (cl.bithaus.qfix.fields.TradingSessionID) g.getField(tradingSessionID);
+                    entry.setTradingSessionID(tradingSessionID.getValue());
+
+                }
+                if(g.isSetField(tradingSessionSubID)) {
+                    tradingSessionSubID = (cl.bithaus.qfix.fields.TradingSessionSubID) g.getField(tradingSessionSubID);
+                    entry.setTradingSessionSubID(tradingSessionSubID.getValue());
+
+                }
+                if(g.isSetField(text)) {
+                    text = (cl.bithaus.qfix.fields.Text) g.getField(text);
+                    entry.setText(text.getValue());
+
+                }
+                if(g.isSetField(encodedTextLen)) {
+                    encodedTextLen = (cl.bithaus.qfix.fields.EncodedTextLen) g.getField(encodedTextLen);
+                    entry.setEncodedTextLen(encodedTextLen.getValue());
+
+                }
+                if(g.isSetField(encodedText)) {
+                    encodedText = (cl.bithaus.qfix.fields.EncodedText) g.getField(encodedText);
+                    entry.setEncodedText(encodedText.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+        }
+        return dest;
+
+    }
 }
 

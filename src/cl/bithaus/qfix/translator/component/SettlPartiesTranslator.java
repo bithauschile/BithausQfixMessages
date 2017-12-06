@@ -54,7 +54,6 @@ public class SettlPartiesTranslator  {
         cl.bithaus.fix.components.SettlParties dest = new cl.bithaus.fix.components.SettlParties();
 
 
-
         if(src.isSetNoSettlPartyIDs()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoSettlPartyIDs().getField());
@@ -87,9 +86,7 @@ public class SettlPartiesTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

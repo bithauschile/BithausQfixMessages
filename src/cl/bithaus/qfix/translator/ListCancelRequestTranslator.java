@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for ListCancelRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,36 +30,86 @@ public class ListCancelRequestTranslator  {
 
         if(src.getListID() != null)
             dest.set(new cl.bithaus.qfix.fields.ListID(src.getListID()));
-            
+        
         if(src.getTransactTime() != null)
             dest.set(new cl.bithaus.qfix.fields.TransactTime(src.getTransactTime()));
-            
+        
         if(src.getClOrdID() != null)
             dest.set(new cl.bithaus.qfix.fields.ClOrdID(src.getClOrdID()));
-            
+        
         if(src.getTradeOriginationDate() != null)
             dest.set(new cl.bithaus.qfix.fields.TradeOriginationDate(src.getTradeOriginationDate()));
-            
+        
         if(src.getTradeDate() != null)
             dest.set(new cl.bithaus.qfix.fields.TradeDate(src.getTradeDate()));
-            
+        
         if(src.getText() != null)
             dest.set(new cl.bithaus.qfix.fields.Text(src.getText()));
-            
+        
         if(src.getEncodedTextLen() != null)
             dest.set(new cl.bithaus.qfix.fields.EncodedTextLen(src.getEncodedTextLen()));
-            
+        
         if(src.getEncodedText() != null)
             dest.set(new cl.bithaus.qfix.fields.EncodedText(src.getEncodedText()));
-            
+        
         if(src.getExDestination() != null)
             dest.set(new cl.bithaus.qfix.fields.ExDestination(src.getExDestination()));
-            
+        
+
+        if(src.getParties() != null)
+            dest.set(cl.bithaus.qfix.translator.component.PartiesTranslator.toFix(src.getParties()));
+
+        if(src.getInstrument() != null)
+            dest.set(cl.bithaus.qfix.translator.component.InstrumentTranslator.toFix(src.getInstrument()));
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.ListCancelRequest fromFix(cl.bithaus.qfix.msg.ListCancelRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.ListCancelRequest dest = new cl.bithaus.fix.ListCancelRequest();
+
+        if(src.isSetListID())
+            dest.setListID(src.getListID().getValue());
+
+        if(src.isSetTransactTime())
+            dest.setTransactTime(src.getTransactTime().getValue());
+
+        if(src.isSetClOrdID())
+            dest.setClOrdID(src.getClOrdID().getValue());
+
+        if(src.isSetTradeOriginationDate())
+            dest.setTradeOriginationDate(src.getTradeOriginationDate().getValue());
+
+        if(src.isSetTradeDate())
+            dest.setTradeDate(src.getTradeDate().getValue());
+
+        if(src.isSetText())
+            dest.setText(src.getText().getValue());
+
+        if(src.isSetEncodedTextLen())
+            dest.setEncodedTextLen(src.getEncodedTextLen().getValue());
+
+        if(src.isSetEncodedText())
+            dest.setEncodedText(src.getEncodedText().getValue());
+
+        if(src.isSetExDestination())
+            dest.setExDestination(src.getExDestination().getValue());
+
+
+        if(src.getParties() != null)
+            dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
+
+        if(src.getInstrument() != null)
+            dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
+
+
+
+        return dest;
+
+    }
 }
 

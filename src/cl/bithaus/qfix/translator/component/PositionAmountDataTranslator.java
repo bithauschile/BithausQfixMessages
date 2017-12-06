@@ -52,7 +52,6 @@ public class PositionAmountDataTranslator  {
         cl.bithaus.fix.components.PositionAmountData dest = new cl.bithaus.fix.components.PositionAmountData();
 
 
-
         if(src.isSetNoPosAmt()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoPosAmt().getField());
@@ -80,9 +79,7 @@ public class PositionAmountDataTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

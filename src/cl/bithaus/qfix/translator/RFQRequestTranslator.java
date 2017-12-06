@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for RFQRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,11 +30,12 @@ public class RFQRequestTranslator  {
 
         if(src.getRFQReqID() != null)
             dest.set(new cl.bithaus.qfix.fields.RFQReqID(src.getRFQReqID()));
-            
+        
         if(src.getSubscriptionRequestType() != null)
             if(src.getSubscriptionRequestType().length() > 0)
                 dest.set(new cl.bithaus.qfix.fields.SubscriptionRequestType(src.getSubscriptionRequestType().charAt(0)));
-            
+        
+
 
         if(src.getNoRelatedSym() != null && src.getNoRelatedSym().size() > 0) {
 
@@ -48,9 +54,72 @@ public class RFQRequestTranslator  {
             }            
         }
 
+
         return dest;
     }
 
+    public static cl.bithaus.fix.RFQRequest fromFix(cl.bithaus.qfix.msg.RFQRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.RFQRequest dest = new cl.bithaus.fix.RFQRequest();
+
+        if(src.isSetRFQReqID())
+            dest.setRFQReqID(src.getRFQReqID().getValue());
+
+        if(src.isSetSubscriptionRequestType())
+            dest.setSubscriptionRequestType(src.getSubscriptionRequestType().getValue()+"");
+
+
+
+
+        if(src.isSetNoRelatedSym()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoRelatedSym().getField());
+            List<cl.bithaus.fix.RFQRequest.NoRelatedSym.NoRelatedSymEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.PrevClosePx prevClosePx = new cl.bithaus.qfix.fields.PrevClosePx();
+            cl.bithaus.qfix.fields.QuoteRequestType quoteRequestType = new cl.bithaus.qfix.fields.QuoteRequestType();
+            cl.bithaus.qfix.fields.QuoteType quoteType = new cl.bithaus.qfix.fields.QuoteType();
+            cl.bithaus.qfix.fields.TradingSessionID tradingSessionID = new cl.bithaus.qfix.fields.TradingSessionID();
+            cl.bithaus.qfix.fields.TradingSessionSubID tradingSessionSubID = new cl.bithaus.qfix.fields.TradingSessionSubID();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.RFQRequest.NoRelatedSym.NoRelatedSymEntry entry = 
+                    new cl.bithaus.fix.RFQRequest.NoRelatedSym.NoRelatedSymEntry();
+
+                if(g.isSetField(prevClosePx)) {
+                    prevClosePx = (cl.bithaus.qfix.fields.PrevClosePx) g.getField(prevClosePx);
+                    entry.setPrevClosePx(prevClosePx.getValue());
+
+                }
+                if(g.isSetField(quoteRequestType)) {
+                    quoteRequestType = (cl.bithaus.qfix.fields.QuoteRequestType) g.getField(quoteRequestType);
+                    entry.setQuoteRequestType(quoteRequestType.getValue());
+
+                }
+                if(g.isSetField(quoteType)) {
+                    quoteType = (cl.bithaus.qfix.fields.QuoteType) g.getField(quoteType);
+                    entry.setQuoteType(quoteType.getValue());
+
+                }
+                if(g.isSetField(tradingSessionID)) {
+                    tradingSessionID = (cl.bithaus.qfix.fields.TradingSessionID) g.getField(tradingSessionID);
+                    entry.setTradingSessionID(tradingSessionID.getValue());
+
+                }
+                if(g.isSetField(tradingSessionSubID)) {
+                    tradingSessionSubID = (cl.bithaus.qfix.fields.TradingSessionSubID) g.getField(tradingSessionSubID);
+                    entry.setTradingSessionSubID(tradingSessionSubID.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+        }
+        return dest;
+
+    }
 }
 

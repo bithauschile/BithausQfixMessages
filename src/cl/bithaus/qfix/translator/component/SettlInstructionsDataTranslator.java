@@ -67,17 +67,12 @@ public class SettlInstructionsDataTranslator  {
 
         if(src.isSetSettlDeliveryType())
             dest.setSettlDeliveryType(src.getSettlDeliveryType().getValue());
-            
         if(src.isSetStandInstDbType())
             dest.setStandInstDbType(src.getStandInstDbType().getValue());
-            
         if(src.isSetStandInstDbName())
             dest.setStandInstDbName(src.getStandInstDbName().getValue());
-            
         if(src.isSetStandInstDbID())
             dest.setStandInstDbID(src.getStandInstDbID().getValue());
-            
-
 
         if(src.isSetNoDlvyInst()) {
 
@@ -104,9 +99,7 @@ public class SettlInstructionsDataTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

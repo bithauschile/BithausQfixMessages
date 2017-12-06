@@ -57,7 +57,6 @@ public class SecLstUpdRelSymGrpTranslator  {
         cl.bithaus.fix.components.SecLstUpdRelSymGrp dest = new cl.bithaus.fix.components.SecLstUpdRelSymGrp();
 
 
-
         if(src.isSetNoRelatedSym()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoRelatedSym().getField());
@@ -108,9 +107,7 @@ public class SecLstUpdRelSymGrpTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

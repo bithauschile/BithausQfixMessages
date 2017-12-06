@@ -54,7 +54,6 @@ public class PartiesTranslator  {
         cl.bithaus.fix.components.Parties dest = new cl.bithaus.fix.components.Parties();
 
 
-
         if(src.isSetNoPartyIDs()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoPartyIDs().getField());
@@ -87,9 +86,7 @@ public class PartiesTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

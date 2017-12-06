@@ -178,128 +178,86 @@ public class InstrumentLegTranslator  {
 
         if(src.isSetLegSymbol())
             dest.setLegSymbol(src.getLegSymbol().getValue());
-            
         if(src.isSetLegSymbolSfx())
             dest.setLegSymbolSfx(src.getLegSymbolSfx().getValue());
-            
         if(src.isSetLegSecurityID())
             dest.setLegSecurityID(src.getLegSecurityID().getValue());
-            
         if(src.isSetLegSecurityIDSource())
             dest.setLegSecurityIDSource(src.getLegSecurityIDSource().getValue());
-            
         if(src.isSetLegProduct())
             dest.setLegProduct(src.getLegProduct().getValue());
-            
         if(src.isSetLegCFICode())
             dest.setLegCFICode(src.getLegCFICode().getValue());
-            
         if(src.isSetLegSecurityType())
             dest.setLegSecurityType(src.getLegSecurityType().getValue());
-            
         if(src.isSetLegSecuritySubType())
             dest.setLegSecuritySubType(src.getLegSecuritySubType().getValue());
-            
         if(src.isSetLegMaturityMonthYear())
             dest.setLegMaturityMonthYear(src.getLegMaturityMonthYear().getValue());
-            
         if(src.isSetLegMaturityDate())
             dest.setLegMaturityDate(src.getLegMaturityDate().getValue());
-            
         if(src.isSetLegCouponPaymentDate())
             dest.setLegCouponPaymentDate(src.getLegCouponPaymentDate().getValue());
-            
         if(src.isSetLegIssueDate())
             dest.setLegIssueDate(src.getLegIssueDate().getValue());
-            
         if(src.isSetLegRepoCollateralSecurityType())
             dest.setLegRepoCollateralSecurityType(src.getLegRepoCollateralSecurityType().getValue());
-            
         if(src.isSetLegRepurchaseTerm())
             dest.setLegRepurchaseTerm(src.getLegRepurchaseTerm().getValue());
-            
         if(src.isSetLegRepurchaseRate())
             dest.setLegRepurchaseRate(new BigDecimal(src.getLegRepurchaseRate().getValue()));
-            
         if(src.isSetLegFactor())
             dest.setLegFactor(new BigDecimal(src.getLegFactor().getValue()));
-            
         if(src.isSetLegCreditRating())
             dest.setLegCreditRating(src.getLegCreditRating().getValue());
-            
         if(src.isSetLegInstrRegistry())
             dest.setLegInstrRegistry(src.getLegInstrRegistry().getValue());
-            
         if(src.isSetLegCountryOfIssue())
             dest.setLegCountryOfIssue(src.getLegCountryOfIssue().getValue());
-            
         if(src.isSetLegStateOrProvinceOfIssue())
             dest.setLegStateOrProvinceOfIssue(src.getLegStateOrProvinceOfIssue().getValue());
-            
         if(src.isSetLegLocaleOfIssue())
             dest.setLegLocaleOfIssue(src.getLegLocaleOfIssue().getValue());
-            
         if(src.isSetLegRedemptionDate())
             dest.setLegRedemptionDate(src.getLegRedemptionDate().getValue());
-            
         if(src.isSetLegStrikePrice())
             dest.setLegStrikePrice(src.getLegStrikePrice().getValue());
-            
         if(src.isSetLegStrikeCurrency())
             dest.setLegStrikeCurrency(src.getLegStrikeCurrency().getValue());
-            
         if(src.isSetLegOptAttribute())
             dest.setLegOptAttribute(src.getLegOptAttribute().getValue()+"");
-            
         if(src.isSetLegContractMultiplier())
             dest.setLegContractMultiplier(new BigDecimal(src.getLegContractMultiplier().getValue()));
-            
         if(src.isSetLegCouponRate())
             dest.setLegCouponRate(new BigDecimal(src.getLegCouponRate().getValue()));
-            
         if(src.isSetLegSecurityExchange())
             dest.setLegSecurityExchange(src.getLegSecurityExchange().getValue());
-            
         if(src.isSetLegIssuer())
             dest.setLegIssuer(src.getLegIssuer().getValue());
-            
         if(src.isSetEncodedLegIssuerLen())
             dest.setEncodedLegIssuerLen(src.getEncodedLegIssuerLen().getValue());
-            
         if(src.isSetEncodedLegIssuer())
             dest.setEncodedLegIssuer(src.getEncodedLegIssuer().getValue());
-            
         if(src.isSetLegSecurityDesc())
             dest.setLegSecurityDesc(src.getLegSecurityDesc().getValue());
-            
         if(src.isSetEncodedLegSecurityDescLen())
             dest.setEncodedLegSecurityDescLen(src.getEncodedLegSecurityDescLen().getValue());
-            
         if(src.isSetEncodedLegSecurityDesc())
             dest.setEncodedLegSecurityDesc(src.getEncodedLegSecurityDesc().getValue());
-            
         if(src.isSetLegRatioQty())
             dest.setLegRatioQty(new BigDecimal(src.getLegRatioQty().getValue()));
-            
         if(src.isSetLegSide())
             dest.setLegSide(src.getLegSide().getValue()+"");
-            
         if(src.isSetLegCurrency())
             dest.setLegCurrency(src.getLegCurrency().getValue());
-            
         if(src.isSetLegPool())
             dest.setLegPool(src.getLegPool().getValue());
-            
         if(src.isSetLegDatedDate())
             dest.setLegDatedDate(src.getLegDatedDate().getValue());
-            
         if(src.isSetLegContractSettlMonth())
             dest.setLegContractSettlMonth(src.getLegContractSettlMonth().getValue());
-            
         if(src.isSetLegInterestAccrualDate())
             dest.setLegInterestAccrualDate(src.getLegInterestAccrualDate().getValue());
-            
-
 
         if(src.isSetNoLegSecurityAltID()) {
 
@@ -328,9 +286,7 @@ public class InstrumentLegTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

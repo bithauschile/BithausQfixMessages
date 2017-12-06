@@ -56,7 +56,6 @@ public class OIBBestPriceDataTranslator  {
         cl.bithaus.fix.components.OIBBestPriceData dest = new cl.bithaus.fix.components.OIBBestPriceData();
 
 
-
         if(src.isSetNoOIBBestPrices()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoOIBBestPrices().getField());
@@ -108,9 +107,7 @@ public class OIBBestPriceDataTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

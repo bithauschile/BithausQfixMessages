@@ -58,24 +58,16 @@ public class YieldDataTranslator  {
 
         if(src.isSetYieldType())
             dest.setYieldType(src.getYieldType().getValue());
-            
         if(src.isSetYield())
             dest.setYield(new BigDecimal(src.getYield().getValue()));
-            
         if(src.isSetYieldCalcDate())
             dest.setYieldCalcDate(src.getYieldCalcDate().getValue());
-            
         if(src.isSetYieldRedemptionDate())
             dest.setYieldRedemptionDate(src.getYieldRedemptionDate().getValue());
-            
         if(src.isSetYieldRedemptionPrice())
             dest.setYieldRedemptionPrice(src.getYieldRedemptionPrice().getValue());
-            
         if(src.isSetYieldRedemptionPriceType())
             dest.setYieldRedemptionPriceType(src.getYieldRedemptionPriceType().getValue());
-            
-
-
 
         return dest;
 

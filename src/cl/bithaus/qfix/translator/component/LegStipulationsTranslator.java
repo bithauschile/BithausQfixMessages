@@ -52,7 +52,6 @@ public class LegStipulationsTranslator  {
         cl.bithaus.fix.components.LegStipulations dest = new cl.bithaus.fix.components.LegStipulations();
 
 
-
         if(src.isSetNoLegStipulations()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoLegStipulations().getField());
@@ -80,9 +79,7 @@ public class LegStipulationsTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

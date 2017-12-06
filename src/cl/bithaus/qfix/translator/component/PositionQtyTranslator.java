@@ -54,7 +54,6 @@ public class PositionQtyTranslator  {
         cl.bithaus.fix.components.PositionQty dest = new cl.bithaus.fix.components.PositionQty();
 
 
-
         if(src.isSetNoPositions()) {
 
             List<quickfix.Group> gList = src.getGroups(src.getNoPositions().getField());
@@ -94,9 +93,7 @@ public class PositionQtyTranslator  {
                 result.add(entry);                
             }
 
- 
         }
-
         return dest;
 
     }

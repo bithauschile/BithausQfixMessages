@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for ResendRequest
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -25,15 +30,32 @@ public class ResendRequestTranslator  {
 
         if(src.getBeginSeqNo() != null)
             dest.set(new cl.bithaus.qfix.fields.BeginSeqNo(src.getBeginSeqNo()));
-            
+        
         if(src.getEndSeqNo() != null)
             dest.set(new cl.bithaus.qfix.fields.EndSeqNo(src.getEndSeqNo()));
-            
+        
+
 
 
         return dest;
     }
 
+    public static cl.bithaus.fix.ResendRequest fromFix(cl.bithaus.qfix.msg.ResendRequest src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.ResendRequest dest = new cl.bithaus.fix.ResendRequest();
+
+        if(src.isSetBeginSeqNo())
+            dest.setBeginSeqNo(src.getBeginSeqNo().getValue());
+
+        if(src.isSetEndSeqNo())
+            dest.setEndSeqNo(src.getEndSeqNo().getValue());
+
+
+
+
+        return dest;
+
+    }
 }
 
