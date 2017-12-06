@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for SpreadOrBenchmarkCurveData
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -52,6 +57,40 @@ public class SpreadOrBenchmarkCurveDataTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.SpreadOrBenchmarkCurveData fromFix(cl.bithaus.qfix.msg.component.SpreadOrBenchmarkCurveData src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.SpreadOrBenchmarkCurveData dest = new cl.bithaus.fix.components.SpreadOrBenchmarkCurveData();
+
+        if(src.isSetSpread())
+            dest.setSpread(src.getSpread().getValue());
+            
+        if(src.isSetBenchmarkCurveCurrency())
+            dest.setBenchmarkCurveCurrency(src.getBenchmarkCurveCurrency().getValue());
+            
+        if(src.isSetBenchmarkCurveName())
+            dest.setBenchmarkCurveName(src.getBenchmarkCurveName().getValue());
+            
+        if(src.isSetBenchmarkCurvePoint())
+            dest.setBenchmarkCurvePoint(src.getBenchmarkCurvePoint().getValue());
+            
+        if(src.isSetBenchmarkPrice())
+            dest.setBenchmarkPrice(src.getBenchmarkPrice().getValue());
+            
+        if(src.isSetBenchmarkPriceType())
+            dest.setBenchmarkPriceType(src.getBenchmarkPriceType().getValue());
+            
+        if(src.isSetBenchmarkSecurityID())
+            dest.setBenchmarkSecurityID(src.getBenchmarkSecurityID().getValue());
+            
+        if(src.isSetBenchmarkSecurityIDSource())
+            dest.setBenchmarkSecurityIDSource(src.getBenchmarkSecurityIDSource().getValue());
+            
+
+
+
+        return dest;
+
+    }
 }
 

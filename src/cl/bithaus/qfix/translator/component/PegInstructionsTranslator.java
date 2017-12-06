@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for PegInstructions
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -31,6 +36,19 @@ public class PegInstructionsTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.PegInstructions fromFix(cl.bithaus.qfix.msg.component.PegInstructions src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.PegInstructions dest = new cl.bithaus.fix.components.PegInstructions();
+
+        if(src.isSetPegOffsetValue())
+            dest.setPegOffsetValue(new BigDecimal(src.getPegOffsetValue().getValue()));
+            
+
+
+
+        return dest;
+
+    }
 }
 

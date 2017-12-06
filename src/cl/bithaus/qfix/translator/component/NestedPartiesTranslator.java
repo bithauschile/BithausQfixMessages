@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for NestedParties
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -43,6 +48,50 @@ public class NestedPartiesTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.NestedParties fromFix(cl.bithaus.qfix.msg.component.NestedParties src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.NestedParties dest = new cl.bithaus.fix.components.NestedParties();
+
+
+
+        if(src.isSetNoNestedPartyIDs()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoNestedPartyIDs().getField());
+            List<cl.bithaus.fix.components.NestedParties.NoNestedPartyIDs.NoNestedPartyIDsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.NestedPartyID nestedPartyID = new cl.bithaus.qfix.fields.NestedPartyID();
+            cl.bithaus.qfix.fields.NestedPartyIDSource nestedPartyIDSource = new cl.bithaus.qfix.fields.NestedPartyIDSource();
+            cl.bithaus.qfix.fields.NestedPartyRole nestedPartyRole = new cl.bithaus.qfix.fields.NestedPartyRole();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.NestedParties.NoNestedPartyIDs.NoNestedPartyIDsEntry entry = 
+                    new cl.bithaus.fix.components.NestedParties.NoNestedPartyIDs.NoNestedPartyIDsEntry();
+
+                if(g.isSetField(nestedPartyID)) {
+                    nestedPartyID = (cl.bithaus.qfix.fields.NestedPartyID) g.getField(nestedPartyID);
+                    entry.setNestedPartyID(nestedPartyID.getValue());
+
+                }
+                if(g.isSetField(nestedPartyIDSource)) {
+                    nestedPartyIDSource = (cl.bithaus.qfix.fields.NestedPartyIDSource) g.getField(nestedPartyIDSource);
+                    entry.setNestedPartyIDSource(nestedPartyIDSource.getValue()+"");
+                }
+                if(g.isSetField(nestedPartyRole)) {
+                    nestedPartyRole = (cl.bithaus.qfix.fields.NestedPartyRole) g.getField(nestedPartyRole);
+                    entry.setNestedPartyRole(nestedPartyRole.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

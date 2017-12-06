@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for DiscretionInstructions
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -50,6 +55,37 @@ public class DiscretionInstructionsTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.DiscretionInstructions fromFix(cl.bithaus.qfix.msg.component.DiscretionInstructions src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.DiscretionInstructions dest = new cl.bithaus.fix.components.DiscretionInstructions();
+
+        if(src.isSetDiscretionInst())
+            dest.setDiscretionInst(src.getDiscretionInst().getValue()+"");
+            
+        if(src.isSetDiscretionOffsetValue())
+            dest.setDiscretionOffsetValue(new BigDecimal(src.getDiscretionOffsetValue().getValue()));
+            
+        if(src.isSetDiscretionMoveType())
+            dest.setDiscretionMoveType(src.getDiscretionMoveType().getValue());
+            
+        if(src.isSetDiscretionOffsetType())
+            dest.setDiscretionOffsetType(src.getDiscretionOffsetType().getValue());
+            
+        if(src.isSetDiscretionLimitType())
+            dest.setDiscretionLimitType(src.getDiscretionLimitType().getValue());
+            
+        if(src.isSetDiscretionRoundDirection())
+            dest.setDiscretionRoundDirection(src.getDiscretionRoundDirection().getValue());
+            
+        if(src.isSetDiscretionScope())
+            dest.setDiscretionScope(src.getDiscretionScope().getValue());
+            
+
+
+
+        return dest;
+
+    }
 }
 

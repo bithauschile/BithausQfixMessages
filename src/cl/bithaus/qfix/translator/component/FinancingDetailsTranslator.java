@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for FinancingDetails
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -55,6 +60,43 @@ public class FinancingDetailsTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.FinancingDetails fromFix(cl.bithaus.qfix.msg.component.FinancingDetails src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.FinancingDetails dest = new cl.bithaus.fix.components.FinancingDetails();
+
+        if(src.isSetAgreementDesc())
+            dest.setAgreementDesc(src.getAgreementDesc().getValue());
+            
+        if(src.isSetAgreementID())
+            dest.setAgreementID(src.getAgreementID().getValue());
+            
+        if(src.isSetAgreementDate())
+            dest.setAgreementDate(src.getAgreementDate().getValue());
+            
+        if(src.isSetAgreementCurrency())
+            dest.setAgreementCurrency(src.getAgreementCurrency().getValue());
+            
+        if(src.isSetTerminationType())
+            dest.setTerminationType(src.getTerminationType().getValue());
+            
+        if(src.isSetStartDate())
+            dest.setStartDate(src.getStartDate().getValue());
+            
+        if(src.isSetEndDate())
+            dest.setEndDate(src.getEndDate().getValue());
+            
+        if(src.isSetDeliveryType())
+            dest.setDeliveryType(src.getDeliveryType().getValue());
+            
+        if(src.isSetMarginRatio())
+            dest.setMarginRatio(new BigDecimal(src.getMarginRatio().getValue()));
+            
+
+
+
+        return dest;
+
+    }
 }
 

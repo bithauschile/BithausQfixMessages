@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for UnderlyingStipulations
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -41,6 +46,45 @@ public class UnderlyingStipulationsTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.UnderlyingStipulations fromFix(cl.bithaus.qfix.msg.component.UnderlyingStipulations src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.UnderlyingStipulations dest = new cl.bithaus.fix.components.UnderlyingStipulations();
+
+
+
+        if(src.isSetNoUnderlyingStips()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoUnderlyingStips().getField());
+            List<cl.bithaus.fix.components.UnderlyingStipulations.NoUnderlyingStips.NoUnderlyingStipsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.UnderlyingStipType underlyingStipType = new cl.bithaus.qfix.fields.UnderlyingStipType();
+            cl.bithaus.qfix.fields.UnderlyingStipValue underlyingStipValue = new cl.bithaus.qfix.fields.UnderlyingStipValue();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.UnderlyingStipulations.NoUnderlyingStips.NoUnderlyingStipsEntry entry = 
+                    new cl.bithaus.fix.components.UnderlyingStipulations.NoUnderlyingStips.NoUnderlyingStipsEntry();
+
+                if(g.isSetField(underlyingStipType)) {
+                    underlyingStipType = (cl.bithaus.qfix.fields.UnderlyingStipType) g.getField(underlyingStipType);
+                    entry.setUnderlyingStipType(underlyingStipType.getValue());
+
+                }
+                if(g.isSetField(underlyingStipValue)) {
+                    underlyingStipValue = (cl.bithaus.qfix.fields.UnderlyingStipValue) g.getField(underlyingStipValue);
+                    entry.setUnderlyingStipValue(underlyingStipValue.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

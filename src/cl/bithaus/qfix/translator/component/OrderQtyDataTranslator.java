@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for OrderQtyData
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -44,6 +49,31 @@ public class OrderQtyDataTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.OrderQtyData fromFix(cl.bithaus.qfix.msg.component.OrderQtyData src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.OrderQtyData dest = new cl.bithaus.fix.components.OrderQtyData();
+
+        if(src.isSetOrderQty())
+            dest.setOrderQty(src.getOrderQty().getValue());
+            
+        if(src.isSetCashOrderQty())
+            dest.setCashOrderQty(src.getCashOrderQty().getValue());
+            
+        if(src.isSetOrderPercent())
+            dest.setOrderPercent(new BigDecimal(src.getOrderPercent().getValue()));
+            
+        if(src.isSetRoundingDirection())
+            dest.setRoundingDirection(src.getRoundingDirection().getValue()+"");
+            
+        if(src.isSetRoundingModulus())
+            dest.setRoundingModulus(new BigDecimal(src.getRoundingModulus().getValue()));
+            
+
+
+
+        return dest;
+
+    }
 }
 

@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for PositionAmountData
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -41,6 +46,45 @@ public class PositionAmountDataTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.PositionAmountData fromFix(cl.bithaus.qfix.msg.component.PositionAmountData src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.PositionAmountData dest = new cl.bithaus.fix.components.PositionAmountData();
+
+
+
+        if(src.isSetNoPosAmt()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoPosAmt().getField());
+            List<cl.bithaus.fix.components.PositionAmountData.NoPosAmt.NoPosAmtEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.PosAmtType posAmtType = new cl.bithaus.qfix.fields.PosAmtType();
+            cl.bithaus.qfix.fields.PosAmt posAmt = new cl.bithaus.qfix.fields.PosAmt();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.PositionAmountData.NoPosAmt.NoPosAmtEntry entry = 
+                    new cl.bithaus.fix.components.PositionAmountData.NoPosAmt.NoPosAmtEntry();
+
+                if(g.isSetField(posAmtType)) {
+                    posAmtType = (cl.bithaus.qfix.fields.PosAmtType) g.getField(posAmtType);
+                    entry.setPosAmtType(posAmtType.getValue());
+
+                }
+                if(g.isSetField(posAmt)) {
+                    posAmt = (cl.bithaus.qfix.fields.PosAmt) g.getField(posAmt);
+                    entry.setPosAmt(posAmt.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

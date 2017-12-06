@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for SettlParties
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -43,6 +48,50 @@ public class SettlPartiesTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.SettlParties fromFix(cl.bithaus.qfix.msg.component.SettlParties src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.SettlParties dest = new cl.bithaus.fix.components.SettlParties();
+
+
+
+        if(src.isSetNoSettlPartyIDs()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoSettlPartyIDs().getField());
+            List<cl.bithaus.fix.components.SettlParties.NoSettlPartyIDs.NoSettlPartyIDsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.SettlPartyID settlPartyID = new cl.bithaus.qfix.fields.SettlPartyID();
+            cl.bithaus.qfix.fields.SettlPartyIDSource settlPartyIDSource = new cl.bithaus.qfix.fields.SettlPartyIDSource();
+            cl.bithaus.qfix.fields.SettlPartyRole settlPartyRole = new cl.bithaus.qfix.fields.SettlPartyRole();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.SettlParties.NoSettlPartyIDs.NoSettlPartyIDsEntry entry = 
+                    new cl.bithaus.fix.components.SettlParties.NoSettlPartyIDs.NoSettlPartyIDsEntry();
+
+                if(g.isSetField(settlPartyID)) {
+                    settlPartyID = (cl.bithaus.qfix.fields.SettlPartyID) g.getField(settlPartyID);
+                    entry.setSettlPartyID(settlPartyID.getValue());
+
+                }
+                if(g.isSetField(settlPartyIDSource)) {
+                    settlPartyIDSource = (cl.bithaus.qfix.fields.SettlPartyIDSource) g.getField(settlPartyIDSource);
+                    entry.setSettlPartyIDSource(settlPartyIDSource.getValue()+"");
+                }
+                if(g.isSetField(settlPartyRole)) {
+                    settlPartyRole = (cl.bithaus.qfix.fields.SettlPartyRole) g.getField(settlPartyRole);
+                    entry.setSettlPartyRole(settlPartyRole.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

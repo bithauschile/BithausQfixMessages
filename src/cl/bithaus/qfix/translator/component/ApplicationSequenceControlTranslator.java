@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for ApplicationSequenceControl
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -40,6 +45,28 @@ public class ApplicationSequenceControlTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.ApplicationSequenceControl fromFix(cl.bithaus.qfix.msg.component.ApplicationSequenceControl src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.ApplicationSequenceControl dest = new cl.bithaus.fix.components.ApplicationSequenceControl();
+
+        if(src.isSetApplID())
+            dest.setApplID(src.getApplID().getValue());
+            
+        if(src.isSetApplSeqNum())
+            dest.setApplSeqNum(src.getApplSeqNum().getValue());
+            
+        if(src.isSetApplLastSeqNum())
+            dest.setApplLastSeqNum(src.getApplLastSeqNum().getValue());
+            
+        if(src.isSetApplResendFlag())
+            dest.setApplResendFlag(src.getApplResendFlag().getValue());
+            
+
+
+
+        return dest;
+
+    }
 }
 

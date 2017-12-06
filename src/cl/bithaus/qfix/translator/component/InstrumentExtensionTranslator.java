@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for InstrumentExtension
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -47,6 +52,51 @@ public class InstrumentExtensionTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.InstrumentExtension fromFix(cl.bithaus.qfix.msg.component.InstrumentExtension src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.InstrumentExtension dest = new cl.bithaus.fix.components.InstrumentExtension();
+
+        if(src.isSetDeliveryForm())
+            dest.setDeliveryForm(src.getDeliveryForm().getValue());
+            
+        if(src.isSetPctAtRisk())
+            dest.setPctAtRisk(new BigDecimal(src.getPctAtRisk().getValue()));
+            
+
+
+        if(src.isSetNoInstrAttrib()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoInstrAttrib().getField());
+            List<cl.bithaus.fix.components.InstrumentExtension.NoInstrAttrib.NoInstrAttribEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.InstrAttribType instrAttribType = new cl.bithaus.qfix.fields.InstrAttribType();
+            cl.bithaus.qfix.fields.InstrAttribValue instrAttribValue = new cl.bithaus.qfix.fields.InstrAttribValue();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.InstrumentExtension.NoInstrAttrib.NoInstrAttribEntry entry = 
+                    new cl.bithaus.fix.components.InstrumentExtension.NoInstrAttrib.NoInstrAttribEntry();
+
+                if(g.isSetField(instrAttribType)) {
+                    instrAttribType = (cl.bithaus.qfix.fields.InstrAttribType) g.getField(instrAttribType);
+                    entry.setInstrAttribType(instrAttribType.getValue());
+
+                }
+                if(g.isSetField(instrAttribValue)) {
+                    instrAttribValue = (cl.bithaus.qfix.fields.InstrAttribValue) g.getField(instrAttribValue);
+                    entry.setInstrAttribValue(instrAttribValue.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

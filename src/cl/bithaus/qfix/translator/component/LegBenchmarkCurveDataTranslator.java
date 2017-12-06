@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for LegBenchmarkCurveData
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -43,6 +48,31 @@ public class LegBenchmarkCurveDataTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.LegBenchmarkCurveData fromFix(cl.bithaus.qfix.msg.component.LegBenchmarkCurveData src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.LegBenchmarkCurveData dest = new cl.bithaus.fix.components.LegBenchmarkCurveData();
+
+        if(src.isSetLegBenchmarkCurveCurrency())
+            dest.setLegBenchmarkCurveCurrency(src.getLegBenchmarkCurveCurrency().getValue());
+            
+        if(src.isSetLegBenchmarkCurveName())
+            dest.setLegBenchmarkCurveName(src.getLegBenchmarkCurveName().getValue());
+            
+        if(src.isSetLegBenchmarkCurvePoint())
+            dest.setLegBenchmarkCurvePoint(src.getLegBenchmarkCurvePoint().getValue());
+            
+        if(src.isSetLegBenchmarkPrice())
+            dest.setLegBenchmarkPrice(src.getLegBenchmarkPrice().getValue());
+            
+        if(src.isSetLegBenchmarkPriceType())
+            dest.setLegBenchmarkPriceType(src.getLegBenchmarkPriceType().getValue());
+            
+
+
+
+        return dest;
+
+    }
 }
 

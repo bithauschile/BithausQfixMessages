@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for IRFValorization
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -86,6 +91,73 @@ public class IRFValorizationTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.IRFValorization fromFix(cl.bithaus.qfix.msg.component.IRFValorization src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.IRFValorization dest = new cl.bithaus.fix.components.IRFValorization();
+
+        if(src.isSetIrfValSymbol())
+            dest.setIrfValSymbol(src.getIrfValSymbol().getValue());
+            
+        if(src.isSetIrfValAdjustmentCurrency())
+            dest.setIrfValAdjustmentCurrency(src.getIrfValAdjustmentCurrency().getValue());
+            
+        if(src.isSetIrfValDate())
+            dest.setIrfValDate(src.getIrfValDate().getValue());
+            
+        if(src.isSetIrfValSettlType())
+            dest.setIrfValSettlType(src.getIrfValSettlType().getValue()+"");
+            
+        if(src.isSetIrfValQty())
+            dest.setIrfValQty(src.getIrfValQty().getValue());
+            
+        if(src.isSetIrfValTir())
+            dest.setIrfValTir(src.getIrfValTir().getValue());
+            
+        if(src.isSetIrfValPrice())
+            dest.setIrfValPrice(src.getIrfValPrice().getValue());
+            
+        if(src.isSetIrfValAmount())
+            dest.setIrfValAmount(src.getIrfValAmount().getValue());
+            
+        if(src.isSetIrfValAmountAdjustedCurrency())
+            dest.setIrfValAmountAdjustedCurrency(src.getIrfValAmountAdjustedCurrency().getValue());
+            
+        if(src.isSetIrfValSettlAmount())
+            dest.setIrfValSettlAmount(src.getIrfValSettlAmount().getValue());
+            
+        if(src.isSetIrfValPar())
+            dest.setIrfValPar(src.getIrfValPar().getValue());
+            
+        if(src.isSetIrfValPeriod())
+            dest.setIrfValPeriod(src.getIrfValPeriod().getValue());
+            
+        if(src.isSetIrfValDuration())
+            dest.setIrfValDuration(src.getIrfValDuration().getValue());
+            
+        if(src.isSetIrfValConvex())
+            dest.setIrfValConvex(src.getIrfValConvex().getValue());
+            
+        if(src.isSetIrfValFloatingRateParValue())
+            dest.setIrfValFloatingRateParValue(src.getIrfValFloatingRateParValue().getValue());
+            
+        if(src.isSetIrfValFloatingRateEstRate())
+            dest.setIrfValFloatingRateEstRate(src.getIrfValFloatingRateEstRate().getValue());
+            
+        if(src.isSetIrfValOtherPeriodYears())
+            dest.setIrfValOtherPeriodYears(src.getIrfValOtherPeriodYears().getValue());
+            
+        if(src.isSetIrfValOtherEstYearInflationRate())
+            dest.setIrfValOtherEstYearInflationRate(src.getIrfValOtherEstYearInflationRate().getValue());
+            
+        if(src.isSetIrfValReferentialValue())
+            dest.setIrfValReferentialValue(src.getIrfValReferentialValue().getValue());
+            
+
+
+
+        return dest;
+
+    }
 }
 

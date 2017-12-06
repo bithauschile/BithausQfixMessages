@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for Parties
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -43,6 +48,50 @@ public class PartiesTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.Parties fromFix(cl.bithaus.qfix.msg.component.Parties src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.Parties dest = new cl.bithaus.fix.components.Parties();
+
+
+
+        if(src.isSetNoPartyIDs()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoPartyIDs().getField());
+            List<cl.bithaus.fix.components.Parties.NoPartyIDs.NoPartyIDsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.PartyID partyID = new cl.bithaus.qfix.fields.PartyID();
+            cl.bithaus.qfix.fields.PartyIDSource partyIDSource = new cl.bithaus.qfix.fields.PartyIDSource();
+            cl.bithaus.qfix.fields.PartyRole partyRole = new cl.bithaus.qfix.fields.PartyRole();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.Parties.NoPartyIDs.NoPartyIDsEntry entry = 
+                    new cl.bithaus.fix.components.Parties.NoPartyIDs.NoPartyIDsEntry();
+
+                if(g.isSetField(partyID)) {
+                    partyID = (cl.bithaus.qfix.fields.PartyID) g.getField(partyID);
+                    entry.setPartyID(partyID.getValue());
+
+                }
+                if(g.isSetField(partyIDSource)) {
+                    partyIDSource = (cl.bithaus.qfix.fields.PartyIDSource) g.getField(partyIDSource);
+                    entry.setPartyIDSource(partyIDSource.getValue()+"");
+                }
+                if(g.isSetField(partyRole)) {
+                    partyRole = (cl.bithaus.qfix.fields.PartyRole) g.getField(partyRole);
+                    entry.setPartyRole(partyRole.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

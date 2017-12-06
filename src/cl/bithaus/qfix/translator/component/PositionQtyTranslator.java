@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for PositionQty
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -43,6 +48,57 @@ public class PositionQtyTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.PositionQty fromFix(cl.bithaus.qfix.msg.component.PositionQty src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.PositionQty dest = new cl.bithaus.fix.components.PositionQty();
+
+
+
+        if(src.isSetNoPositions()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoPositions().getField());
+            List<cl.bithaus.fix.components.PositionQty.NoPositions.NoPositionsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.PosType posType = new cl.bithaus.qfix.fields.PosType();
+            cl.bithaus.qfix.fields.LongQty longQty = new cl.bithaus.qfix.fields.LongQty();
+            cl.bithaus.qfix.fields.ShortQty shortQty = new cl.bithaus.qfix.fields.ShortQty();
+            cl.bithaus.qfix.fields.PosQtyStatus posQtyStatus = new cl.bithaus.qfix.fields.PosQtyStatus();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.PositionQty.NoPositions.NoPositionsEntry entry = 
+                    new cl.bithaus.fix.components.PositionQty.NoPositions.NoPositionsEntry();
+
+                if(g.isSetField(posType)) {
+                    posType = (cl.bithaus.qfix.fields.PosType) g.getField(posType);
+                    entry.setPosType(posType.getValue());
+
+                }
+                if(g.isSetField(longQty)) {
+                    longQty = (cl.bithaus.qfix.fields.LongQty) g.getField(longQty);
+                    entry.setLongQty(longQty.getValue());
+
+                }
+                if(g.isSetField(shortQty)) {
+                    shortQty = (cl.bithaus.qfix.fields.ShortQty) g.getField(shortQty);
+                    entry.setShortQty(shortQty.getValue());
+
+                }
+                if(g.isSetField(posQtyStatus)) {
+                    posQtyStatus = (cl.bithaus.qfix.fields.PosQtyStatus) g.getField(posQtyStatus);
+                    entry.setPosQtyStatus(posQtyStatus.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for InstrumentLeg
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -166,6 +171,168 @@ public class InstrumentLegTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.InstrumentLeg fromFix(cl.bithaus.qfix.msg.component.InstrumentLeg src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.InstrumentLeg dest = new cl.bithaus.fix.components.InstrumentLeg();
+
+        if(src.isSetLegSymbol())
+            dest.setLegSymbol(src.getLegSymbol().getValue());
+            
+        if(src.isSetLegSymbolSfx())
+            dest.setLegSymbolSfx(src.getLegSymbolSfx().getValue());
+            
+        if(src.isSetLegSecurityID())
+            dest.setLegSecurityID(src.getLegSecurityID().getValue());
+            
+        if(src.isSetLegSecurityIDSource())
+            dest.setLegSecurityIDSource(src.getLegSecurityIDSource().getValue());
+            
+        if(src.isSetLegProduct())
+            dest.setLegProduct(src.getLegProduct().getValue());
+            
+        if(src.isSetLegCFICode())
+            dest.setLegCFICode(src.getLegCFICode().getValue());
+            
+        if(src.isSetLegSecurityType())
+            dest.setLegSecurityType(src.getLegSecurityType().getValue());
+            
+        if(src.isSetLegSecuritySubType())
+            dest.setLegSecuritySubType(src.getLegSecuritySubType().getValue());
+            
+        if(src.isSetLegMaturityMonthYear())
+            dest.setLegMaturityMonthYear(src.getLegMaturityMonthYear().getValue());
+            
+        if(src.isSetLegMaturityDate())
+            dest.setLegMaturityDate(src.getLegMaturityDate().getValue());
+            
+        if(src.isSetLegCouponPaymentDate())
+            dest.setLegCouponPaymentDate(src.getLegCouponPaymentDate().getValue());
+            
+        if(src.isSetLegIssueDate())
+            dest.setLegIssueDate(src.getLegIssueDate().getValue());
+            
+        if(src.isSetLegRepoCollateralSecurityType())
+            dest.setLegRepoCollateralSecurityType(src.getLegRepoCollateralSecurityType().getValue());
+            
+        if(src.isSetLegRepurchaseTerm())
+            dest.setLegRepurchaseTerm(src.getLegRepurchaseTerm().getValue());
+            
+        if(src.isSetLegRepurchaseRate())
+            dest.setLegRepurchaseRate(new BigDecimal(src.getLegRepurchaseRate().getValue()));
+            
+        if(src.isSetLegFactor())
+            dest.setLegFactor(new BigDecimal(src.getLegFactor().getValue()));
+            
+        if(src.isSetLegCreditRating())
+            dest.setLegCreditRating(src.getLegCreditRating().getValue());
+            
+        if(src.isSetLegInstrRegistry())
+            dest.setLegInstrRegistry(src.getLegInstrRegistry().getValue());
+            
+        if(src.isSetLegCountryOfIssue())
+            dest.setLegCountryOfIssue(src.getLegCountryOfIssue().getValue());
+            
+        if(src.isSetLegStateOrProvinceOfIssue())
+            dest.setLegStateOrProvinceOfIssue(src.getLegStateOrProvinceOfIssue().getValue());
+            
+        if(src.isSetLegLocaleOfIssue())
+            dest.setLegLocaleOfIssue(src.getLegLocaleOfIssue().getValue());
+            
+        if(src.isSetLegRedemptionDate())
+            dest.setLegRedemptionDate(src.getLegRedemptionDate().getValue());
+            
+        if(src.isSetLegStrikePrice())
+            dest.setLegStrikePrice(src.getLegStrikePrice().getValue());
+            
+        if(src.isSetLegStrikeCurrency())
+            dest.setLegStrikeCurrency(src.getLegStrikeCurrency().getValue());
+            
+        if(src.isSetLegOptAttribute())
+            dest.setLegOptAttribute(src.getLegOptAttribute().getValue()+"");
+            
+        if(src.isSetLegContractMultiplier())
+            dest.setLegContractMultiplier(new BigDecimal(src.getLegContractMultiplier().getValue()));
+            
+        if(src.isSetLegCouponRate())
+            dest.setLegCouponRate(new BigDecimal(src.getLegCouponRate().getValue()));
+            
+        if(src.isSetLegSecurityExchange())
+            dest.setLegSecurityExchange(src.getLegSecurityExchange().getValue());
+            
+        if(src.isSetLegIssuer())
+            dest.setLegIssuer(src.getLegIssuer().getValue());
+            
+        if(src.isSetEncodedLegIssuerLen())
+            dest.setEncodedLegIssuerLen(src.getEncodedLegIssuerLen().getValue());
+            
+        if(src.isSetEncodedLegIssuer())
+            dest.setEncodedLegIssuer(src.getEncodedLegIssuer().getValue());
+            
+        if(src.isSetLegSecurityDesc())
+            dest.setLegSecurityDesc(src.getLegSecurityDesc().getValue());
+            
+        if(src.isSetEncodedLegSecurityDescLen())
+            dest.setEncodedLegSecurityDescLen(src.getEncodedLegSecurityDescLen().getValue());
+            
+        if(src.isSetEncodedLegSecurityDesc())
+            dest.setEncodedLegSecurityDesc(src.getEncodedLegSecurityDesc().getValue());
+            
+        if(src.isSetLegRatioQty())
+            dest.setLegRatioQty(new BigDecimal(src.getLegRatioQty().getValue()));
+            
+        if(src.isSetLegSide())
+            dest.setLegSide(src.getLegSide().getValue()+"");
+            
+        if(src.isSetLegCurrency())
+            dest.setLegCurrency(src.getLegCurrency().getValue());
+            
+        if(src.isSetLegPool())
+            dest.setLegPool(src.getLegPool().getValue());
+            
+        if(src.isSetLegDatedDate())
+            dest.setLegDatedDate(src.getLegDatedDate().getValue());
+            
+        if(src.isSetLegContractSettlMonth())
+            dest.setLegContractSettlMonth(src.getLegContractSettlMonth().getValue());
+            
+        if(src.isSetLegInterestAccrualDate())
+            dest.setLegInterestAccrualDate(src.getLegInterestAccrualDate().getValue());
+            
+
+
+        if(src.isSetNoLegSecurityAltID()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoLegSecurityAltID().getField());
+            List<cl.bithaus.fix.components.InstrumentLeg.NoLegSecurityAltID.NoLegSecurityAltIDEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.LegSecurityAltID legSecurityAltID = new cl.bithaus.qfix.fields.LegSecurityAltID();
+            cl.bithaus.qfix.fields.LegSecurityAltIDSource legSecurityAltIDSource = new cl.bithaus.qfix.fields.LegSecurityAltIDSource();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.InstrumentLeg.NoLegSecurityAltID.NoLegSecurityAltIDEntry entry = 
+                    new cl.bithaus.fix.components.InstrumentLeg.NoLegSecurityAltID.NoLegSecurityAltIDEntry();
+
+                if(g.isSetField(legSecurityAltID)) {
+                    legSecurityAltID = (cl.bithaus.qfix.fields.LegSecurityAltID) g.getField(legSecurityAltID);
+                    entry.setLegSecurityAltID(legSecurityAltID.getValue());
+
+                }
+                if(g.isSetField(legSecurityAltIDSource)) {
+                    legSecurityAltIDSource = (cl.bithaus.qfix.fields.LegSecurityAltIDSource) g.getField(legSecurityAltIDSource);
+                    entry.setLegSecurityAltIDSource(legSecurityAltIDSource.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for LegStipulations
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -41,6 +46,45 @@ public class LegStipulationsTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.LegStipulations fromFix(cl.bithaus.qfix.msg.component.LegStipulations src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.LegStipulations dest = new cl.bithaus.fix.components.LegStipulations();
+
+
+
+        if(src.isSetNoLegStipulations()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoLegStipulations().getField());
+            List<cl.bithaus.fix.components.LegStipulations.NoLegStipulations.NoLegStipulationsEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.LegStipulationType legStipulationType = new cl.bithaus.qfix.fields.LegStipulationType();
+            cl.bithaus.qfix.fields.LegStipulationValue legStipulationValue = new cl.bithaus.qfix.fields.LegStipulationValue();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.LegStipulations.NoLegStipulations.NoLegStipulationsEntry entry = 
+                    new cl.bithaus.fix.components.LegStipulations.NoLegStipulations.NoLegStipulationsEntry();
+
+                if(g.isSetField(legStipulationType)) {
+                    legStipulationType = (cl.bithaus.qfix.fields.LegStipulationType) g.getField(legStipulationType);
+                    entry.setLegStipulationType(legStipulationType.getValue());
+
+                }
+                if(g.isSetField(legStipulationValue)) {
+                    legStipulationValue = (cl.bithaus.qfix.fields.LegStipulationValue) g.getField(legStipulationValue);
+                    entry.setLegStipulationValue(legStipulationValue.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 

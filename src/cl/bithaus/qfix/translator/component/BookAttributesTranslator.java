@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for BookAttributes
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -45,6 +50,31 @@ public class BookAttributesTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.BookAttributes fromFix(cl.bithaus.qfix.msg.component.BookAttributes src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.BookAttributes dest = new cl.bithaus.fix.components.BookAttributes();
+
+        if(src.isSetSettlType())
+            dest.setSettlType(src.getSettlType().getValue()+"");
+            
+        if(src.isSetCross())
+            dest.setCross(src.getCross().getValue());
+            
+        if(src.isSetCrossType())
+            dest.setCrossType(src.getCrossType().getValue());
+            
+        if(src.isSetRoundLotBook())
+            dest.setRoundLotBook(src.getRoundLotBook().getValue()+"");
+            
+        if(src.isSetOrderQty())
+            dest.setOrderQty(src.getOrderQty().getValue());
+            
+
+
+
+        return dest;
+
+    }
 }
 

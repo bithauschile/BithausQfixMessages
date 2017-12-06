@@ -11,9 +11,14 @@
  */
 
 package cl.bithaus.qfix.translator.component;
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
+import quickfix.FieldNotFound;
+
 
 /**
- * Fix Components Class
+ * Fix - Bithaus format component translator for SpecialOrderData
  * Generated for FIX 4.4
  * @author Bithaus Fix Message Generator
  */
@@ -52,6 +57,53 @@ public class SpecialOrderDataTranslator  {
         return dest;
     }
 
+    public static cl.bithaus.fix.components.SpecialOrderData fromFix(cl.bithaus.qfix.msg.component.SpecialOrderData src) 
+        throws FieldNotFound {
 
+        cl.bithaus.fix.components.SpecialOrderData dest = new cl.bithaus.fix.components.SpecialOrderData();
+
+        if(src.isSetSpecialOrderType())
+            dest.setSpecialOrderType(src.getSpecialOrderType().getValue()+"");
+            
+        if(src.isSetNumberOfOrders())
+            dest.setNumberOfOrders(src.getNumberOfOrders().getValue());
+            
+        if(src.isSetOrderNumber())
+            dest.setOrderNumber(src.getOrderNumber().getValue());
+            
+
+
+        if(src.isSetNoSpecialOrderData()) {
+
+            List<quickfix.Group> gList = src.getGroups(src.getNoSpecialOrderData().getField());
+            List<cl.bithaus.fix.components.SpecialOrderData.NoSpecialOrderData.NoSpecialOrderDataEntry> result = new LinkedList<>();
+
+            cl.bithaus.qfix.fields.SpecialOrderDataTypeID specialOrderDataTypeID = new cl.bithaus.qfix.fields.SpecialOrderDataTypeID();
+            cl.bithaus.qfix.fields.SpecialOrderDataValue specialOrderDataValue = new cl.bithaus.qfix.fields.SpecialOrderDataValue();
+
+            for(quickfix.Group g : gList) {
+
+                cl.bithaus.fix.components.SpecialOrderData.NoSpecialOrderData.NoSpecialOrderDataEntry entry = 
+                    new cl.bithaus.fix.components.SpecialOrderData.NoSpecialOrderData.NoSpecialOrderDataEntry();
+
+                if(g.isSetField(specialOrderDataTypeID)) {
+                    specialOrderDataTypeID = (cl.bithaus.qfix.fields.SpecialOrderDataTypeID) g.getField(specialOrderDataTypeID);
+                    entry.setSpecialOrderDataTypeID(specialOrderDataTypeID.getValue()+"");
+                }
+                if(g.isSetField(specialOrderDataValue)) {
+                    specialOrderDataValue = (cl.bithaus.qfix.fields.SpecialOrderDataValue) g.getField(specialOrderDataValue);
+                    entry.setSpecialOrderDataValue(specialOrderDataValue.getValue());
+
+                }
+
+                result.add(entry);                
+            }
+
+ 
+        }
+
+        return dest;
+
+    }
 }
 
