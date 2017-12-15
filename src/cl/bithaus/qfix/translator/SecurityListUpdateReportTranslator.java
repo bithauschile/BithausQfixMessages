@@ -161,12 +161,16 @@ public class SecurityListUpdateReportTranslator  {
             dest.setTransactTime(src.getTransactTime().getValue());
 
 
-        if(src.getSecLstUpdRelSymGrp() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setSecLstUpdRelSymGrp(cl.bithaus.qfix.translator.component.SecLstUpdRelSymGrpTranslator.fromFix(src.getSecLstUpdRelSymGrp()));
-
-        if(src.getApplicationSequenceControl() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setApplicationSequenceControl(cl.bithaus.qfix.translator.component.ApplicationSequenceControlTranslator.fromFix(src.getApplicationSequenceControl()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         return dest;

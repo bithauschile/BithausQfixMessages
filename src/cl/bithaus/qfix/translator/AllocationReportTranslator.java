@@ -497,27 +497,36 @@ public class AllocationReportTranslator  {
             dest.setLastFragment(src.getLastFragment().getValue());
 
 
-        if(src.getInstrument() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getInstrumentExtension() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrumentExtension(cl.bithaus.qfix.translator.component.InstrumentExtensionTranslator.fromFix(src.getInstrumentExtension()));
-
-        if(src.getFinancingDetails() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setFinancingDetails(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.fromFix(src.getFinancingDetails()));
-
-        if(src.getSpreadOrBenchmarkCurveData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setSpreadOrBenchmarkCurveData(cl.bithaus.qfix.translator.component.SpreadOrBenchmarkCurveDataTranslator.fromFix(src.getSpreadOrBenchmarkCurveData()));
-
-        if(src.getParties() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
-        if(src.getStipulations() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setStipulations(cl.bithaus.qfix.translator.component.StipulationsTranslator.fromFix(src.getStipulations()));
-
-        if(src.getYieldData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setYieldData(cl.bithaus.qfix.translator.component.YieldDataTranslator.fromFix(src.getYieldData()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoOrders()) {

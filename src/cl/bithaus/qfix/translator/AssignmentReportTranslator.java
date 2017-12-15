@@ -201,21 +201,28 @@ public class AssignmentReportTranslator  {
             dest.setEncodedText(src.getEncodedText().getValue());
 
 
-        if(src.getParties() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
-        if(src.getInstrument() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getInstrumentLeg() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrumentLeg(cl.bithaus.qfix.translator.component.InstrumentLegTranslator.fromFix(src.getInstrumentLeg()));
-
-        if(src.getPositionQty() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setPositionQty(cl.bithaus.qfix.translator.component.PositionQtyTranslator.fromFix(src.getPositionQty()));
-
-        if(src.getPositionAmountData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setPositionAmountData(cl.bithaus.qfix.translator.component.PositionAmountDataTranslator.fromFix(src.getPositionAmountData()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoUnderlyings()) {

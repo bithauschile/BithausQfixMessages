@@ -456,27 +456,36 @@ public class TradeCaptureReportTranslator  {
             dest.setShortSaleReason(src.getShortSaleReason().getValue());
 
 
-        if(src.getInstrument() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getFinancingDetails() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setFinancingDetails(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.fromFix(src.getFinancingDetails()));
-
-        if(src.getOrderQtyData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setOrderQtyData(cl.bithaus.qfix.translator.component.OrderQtyDataTranslator.fromFix(src.getOrderQtyData()));
-
-        if(src.getYieldData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setYieldData(cl.bithaus.qfix.translator.component.YieldDataTranslator.fromFix(src.getYieldData()));
-
-        if(src.getSpreadOrBenchmarkCurveData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setSpreadOrBenchmarkCurveData(cl.bithaus.qfix.translator.component.SpreadOrBenchmarkCurveDataTranslator.fromFix(src.getSpreadOrBenchmarkCurveData()));
-
-        if(src.getPositionAmountData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setPositionAmountData(cl.bithaus.qfix.translator.component.PositionAmountDataTranslator.fromFix(src.getPositionAmountData()));
-
-        if(src.getTrdRegTimestamps() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setTrdRegTimestamps(cl.bithaus.qfix.translator.component.TrdRegTimestampsTranslator.fromFix(src.getTrdRegTimestamps()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoUnderlyings()) {

@@ -290,12 +290,16 @@ public class TradeCaptureReportAckTranslator  {
             dest.setPreallocMethod(src.getPreallocMethod().getValue()+"");
 
 
-        if(src.getInstrument() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getTrdRegTimestamps() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setTrdRegTimestamps(cl.bithaus.qfix.translator.component.TrdRegTimestampsTranslator.fromFix(src.getTrdRegTimestamps()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoLegs()) {

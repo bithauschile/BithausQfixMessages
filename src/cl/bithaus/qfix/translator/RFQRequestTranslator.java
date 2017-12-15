@@ -70,6 +70,8 @@ public class RFQRequestTranslator  {
             dest.setSubscriptionRequestType(src.getSubscriptionRequestType().getValue()+"");
 
 
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
 
 
         if(src.isSetNoRelatedSym()) {

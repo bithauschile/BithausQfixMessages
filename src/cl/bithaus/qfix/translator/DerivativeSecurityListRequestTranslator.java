@@ -104,9 +104,12 @@ public class DerivativeSecurityListRequestTranslator  {
             dest.setSubscriptionRequestType(src.getSubscriptionRequestType().getValue()+"");
 
 
-        if(src.getUnderlyingInstrument() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setUnderlyingInstrument(cl.bithaus.qfix.translator.component.UnderlyingInstrumentTranslator.fromFix(src.getUnderlyingInstrument()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         return dest;

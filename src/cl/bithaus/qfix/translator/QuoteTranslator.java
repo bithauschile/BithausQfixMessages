@@ -407,27 +407,36 @@ public class QuoteTranslator  {
             dest.setEncodedText(src.getEncodedText().getValue());
 
 
-        if(src.getParties() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
-        if(src.getInstrument() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getFinancingDetails() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setFinancingDetails(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.fromFix(src.getFinancingDetails()));
-
-        if(src.getOrderQtyData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setOrderQtyData(cl.bithaus.qfix.translator.component.OrderQtyDataTranslator.fromFix(src.getOrderQtyData()));
-
-        if(src.getStipulations() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setStipulations(cl.bithaus.qfix.translator.component.StipulationsTranslator.fromFix(src.getStipulations()));
-
-        if(src.getSpreadOrBenchmarkCurveData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setSpreadOrBenchmarkCurveData(cl.bithaus.qfix.translator.component.SpreadOrBenchmarkCurveDataTranslator.fromFix(src.getSpreadOrBenchmarkCurveData()));
-
-        if(src.getYieldData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setYieldData(cl.bithaus.qfix.translator.component.YieldDataTranslator.fromFix(src.getYieldData()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoQuoteQualifiers()) {

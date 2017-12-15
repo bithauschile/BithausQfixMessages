@@ -367,30 +367,40 @@ public class CrossOrderCancelReplaceRequestTranslator  {
             dest.setDesignation(src.getDesignation().getValue());
 
 
-        if(src.getInstrument() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getStipulations() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setStipulations(cl.bithaus.qfix.translator.component.StipulationsTranslator.fromFix(src.getStipulations()));
-
-        if(src.getSpreadOrBenchmarkCurveData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setSpreadOrBenchmarkCurveData(cl.bithaus.qfix.translator.component.SpreadOrBenchmarkCurveDataTranslator.fromFix(src.getSpreadOrBenchmarkCurveData()));
-
-        if(src.getYieldData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setYieldData(cl.bithaus.qfix.translator.component.YieldDataTranslator.fromFix(src.getYieldData()));
-
-        if(src.getPegInstructions() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setPegInstructions(cl.bithaus.qfix.translator.component.PegInstructionsTranslator.fromFix(src.getPegInstructions()));
-
-        if(src.getDiscretionInstructions() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setDiscretionInstructions(cl.bithaus.qfix.translator.component.DiscretionInstructionsTranslator.fromFix(src.getDiscretionInstructions()));
-
-        if(src.getIIFValorization() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setIIFValorization(cl.bithaus.qfix.translator.component.IIFValorizationTranslator.fromFix(src.getIIFValorization()));
-
-        if(src.getIRFValorization() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setIRFValorization(cl.bithaus.qfix.translator.component.IRFValorizationTranslator.fromFix(src.getIRFValorization()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoSides()) {

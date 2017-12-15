@@ -344,30 +344,40 @@ public class NewOrderSingleTranslator  {
             dest.setNoOffers(src.getNoOffers().getValue());
 
 
-        if(src.getParties() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
-        if(src.getInstrument() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getFinancingDetails() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setFinancingDetails(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.fromFix(src.getFinancingDetails()));
-
-        if(src.getOrderQtyData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setOrderQtyData(cl.bithaus.qfix.translator.component.OrderQtyDataTranslator.fromFix(src.getOrderQtyData()));
-
-        if(src.getPegInstructions() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setPegInstructions(cl.bithaus.qfix.translator.component.PegInstructionsTranslator.fromFix(src.getPegInstructions()));
-
-        if(src.getSpecialOrderData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setSpecialOrderData(cl.bithaus.qfix.translator.component.SpecialOrderDataTranslator.fromFix(src.getSpecialOrderData()));
-
-        if(src.getIIFValorization() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setIIFValorization(cl.bithaus.qfix.translator.component.IIFValorizationTranslator.fromFix(src.getIIFValorization()));
-
-        if(src.getIRFValorization() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setIRFValorization(cl.bithaus.qfix.translator.component.IRFValorizationTranslator.fromFix(src.getIRFValorization()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoTradingSessions()) {

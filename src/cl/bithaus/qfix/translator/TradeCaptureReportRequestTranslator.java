@@ -269,18 +269,24 @@ public class TradeCaptureReportRequestTranslator  {
             dest.setEncodedText(src.getEncodedText().getValue());
 
 
-        if(src.getParties() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
-        if(src.getInstrument() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
-        if(src.getInstrumentExtension() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setInstrumentExtension(cl.bithaus.qfix.translator.component.InstrumentExtensionTranslator.fromFix(src.getInstrumentExtension()));
-
-        if(src.getFinancingDetails() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setFinancingDetails(cl.bithaus.qfix.translator.component.FinancingDetailsTranslator.fromFix(src.getFinancingDetails()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoUnderlyings()) {

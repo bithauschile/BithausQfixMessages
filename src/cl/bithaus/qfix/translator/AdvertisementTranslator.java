@@ -170,9 +170,12 @@ public class AdvertisementTranslator  {
             dest.setTradingSessionSubID(src.getTradingSessionSubID().getValue());
 
 
-        if(src.getInstrument() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setInstrument(cl.bithaus.qfix.translator.component.InstrumentTranslator.fromFix(src.getInstrument()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoLegs()) {

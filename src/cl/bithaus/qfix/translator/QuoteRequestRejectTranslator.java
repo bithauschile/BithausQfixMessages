@@ -172,15 +172,20 @@ public class QuoteRequestRejectTranslator  {
             dest.setEncodedText(src.getEncodedText().getValue());
 
 
-        if(src.getSpreadOrBenchmarkCurveData() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setSpreadOrBenchmarkCurveData(cl.bithaus.qfix.translator.component.SpreadOrBenchmarkCurveDataTranslator.fromFix(src.getSpreadOrBenchmarkCurveData()));
-
-        if(src.getYieldData() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setYieldData(cl.bithaus.qfix.translator.component.YieldDataTranslator.fromFix(src.getYieldData()));
-
-        if(src.getParties() != null)
+        }
+        catch(FieldNotFound e) {}
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoRelatedSym()) {

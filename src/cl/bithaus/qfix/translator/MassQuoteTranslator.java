@@ -113,9 +113,12 @@ public class MassQuoteTranslator  {
             dest.setDefOfferSize(src.getDefOfferSize().getValue());
 
 
-        if(src.getParties() != null)
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
+        try {
             dest.setParties(cl.bithaus.qfix.translator.component.PartiesTranslator.fromFix(src.getParties()));
-
+        }
+        catch(FieldNotFound e) {}
 
 
         if(src.isSetNoQuoteSets()) {

@@ -132,6 +132,8 @@ public class ConfirmationRequestTranslator  {
             dest.setEncodedText(src.getEncodedText().getValue());
 
 
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
 
 
         if(src.isSetNoOrders()) {

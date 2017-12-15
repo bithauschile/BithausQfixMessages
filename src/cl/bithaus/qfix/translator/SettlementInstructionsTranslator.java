@@ -135,6 +135,8 @@ public class SettlementInstructionsTranslator  {
             dest.setTransactTime(src.getTransactTime().getValue());
 
 
+        // Hay alguna forma de preguntar si el componente viene en el mensaje?
+        // Aca atrapamos la exception sin notificar como un reemplazo al "isSet"
 
 
         if(src.isSetNoSettlInst()) {
